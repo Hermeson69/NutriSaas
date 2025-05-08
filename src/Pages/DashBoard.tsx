@@ -1,5 +1,3 @@
-import { SidebarNavigation } from "@/components/sidebar-navigation"
-
 export default function DashBoard() {
   return (
     <div className="flex min-h-screen">
