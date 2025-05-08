@@ -77,14 +77,14 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
               <Link key={item.name} to={item.href}>
                 <Button
                   className={cn(
-                    "relative h-10 w-10 rounded-md flex items-center justify-center hover:bg-green-800 group",
+                    "relative h-11 w-11 rounded-md flex items-center justify-center hover:bg-green-800 group",
                     isActive ? "bg-green-800" : "bg-transparent"
                   )}
                   aria-label={item.name}
                 >
                   <item.icon
                     className={cn(
-                      "h-5 w-5",
+                      "h-9 w-9",
                       isActive
                         ? "text-white"
                         : "text-gray-600 group-hover:text-white"
@@ -103,7 +103,7 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
           className="h-10 w-10 rounded-md flex items-center justify-center bg-white hover:bg-green-800 group"
           aria-label="Logout"
         >
-          <LogOut className="h-5 w-5 text-gray-600 group-hover:text-white" />
+          <LogOut className="h-8 w-8 text-gray-600 group-hover:text-white" />
         </Button>
       </div>
     </div>
