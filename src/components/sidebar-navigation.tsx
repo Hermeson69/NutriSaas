@@ -10,9 +10,6 @@ import {
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
 
-// Simple utility function (create in lib/utils.ts)
-// export const cn = (...classes: any[]) => classes.filter(Boolean).join(' ');
-
 interface SidebarNavigationProps {
   className?: string;
 }
@@ -30,7 +27,7 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
     },
     {
       name: "Workouts",
-      href: "/workouts",
+      href: "/Diet",
       icon: Dumbbell,
       bgColor: "bg-transparent",
     },
@@ -57,7 +54,7 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
   return (
     <div
       className={cn(
-        "flex h-screen w-16 flex-col ml-4 rounded-[20px] mt-2 justify-between bg-gray-50 py-4",
+        "flex h-dvh w-16 flex-col ml-4 rounded-[20px] mt-1 justify-between bg-gray-50 py-4",
         className
       )}
     >
@@ -68,7 +65,8 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
         </div>
 
         {/* Navigation items */}
-        <nav className="flex flex-col items-center space-y-6">
+        <nav className="flex flex-col items-center space-y-6 relative
+        ">
           {navItems.map((item) => {
             const isActive =
               item.href === "/"
@@ -87,7 +85,9 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
                   <item.icon
                     className={cn(
                       "h-5 w-5",
-                      isActive ? "text-white" : "text-gray-600 group-hover:text-white"
+                      isActive
+                        ? "text-white"
+                        : "text-gray-600 group-hover:text-white"
                     )}
                   />
                 </Button>
