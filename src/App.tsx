@@ -1,18 +1,22 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import { SidebarNavigation } from "./components/sidebar-navigation"
 
-function App() {
+import DashBoard from "./Pages/DashBoard"
 
+// Add other page components as needed
 
+export default function App() {
   return (
-    <>
-      <div>
-        <h1>SSSSSSS</h1>
+    <Router>
+      <div className="flex min-h-screen">
+        <SidebarNavigation />
+        <main className="flex-1 p-8">
+          <Routes>
+            <Route path="/" element={<DashBoard />} />
+            {/* Add other routes as needed */}
+          </Routes>
+        </main>
       </div>
-    </>
+    </Router>
   )
 }
-
-export default App
