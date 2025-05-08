@@ -1,4 +1,3 @@
-import type React from "react"
 import { cn } from "../lib/utils" // You'll need to create this utility
 import { Home, Dumbbell, Ruler, FileText, Megaphone, LogOut } from "lucide-react"
 import { Link, useLocation } from "react-router-dom"
