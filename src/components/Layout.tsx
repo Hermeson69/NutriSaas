@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "../lib/utils";
+import { cn } from "@/lib/utils";
 
 interface LayoutProps {
     children: React.ReactNode;
@@ -11,7 +11,7 @@ export function Layout({ children, className }: LayoutProps) {
         <div className="flex min-dvh-screen">
             <main
                 className={cn(
-                    "flex-1 p-8",
+                    "flex-1 p-6",
                     className
                 )}
             >

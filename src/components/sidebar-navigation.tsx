@@ -1,4 +1,4 @@
-import { cn } from "../lib/utils"; // You'll need to create this utility
+import { cn } from "../lib/utils";
 import {
   Home,
   Dumbbell,
@@ -27,25 +27,25 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
     },
     {
       name: "Workouts",
-      href: "/Diet",
+      href: "/Gym",
       icon: Dumbbell,
       bgColor: "bg-transparent",
     },
     {
-      name: "Measurements",
-      href: "/measurements",
+      name: "Diet",
+      href: "/Diet",
       icon: Ruler,
       bgColor: "bg-transparent",
     },
     {
       name: "Plans",
-      href: "/plans",
+      href: "/Plans",
       icon: FileText,
       bgColor: "bg-transparent",
     },
     {
       name: "Announcements",
-      href: "/announcements",
+      href: "/Announcements",
       icon: Megaphone,
       bgColor: "bg-transparent",
     },
@@ -65,13 +65,13 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
         </div>
 
         {/* Navigation items */}
-        <nav className="flex flex-col items-center space-y-6 relative
-        ">
+        <nav className="flex flex-col items-center space-y-6 relative">
           {navItems.map((item) => {
             const isActive =
               item.href === "/"
                 ? pathname === "/"
                 : pathname.startsWith(item.href);
+            const Icon = item.icon; 
 
             return (
               <Link key={item.name} to={item.href}>
@@ -82,9 +82,9 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
                   )}
                   aria-label={item.name}
                 >
-                  <item.icon
+                  <Icon
+                    size={43}
                     className={cn(
-                      "h-9 w-9",
                       isActive
                         ? "text-white"
                         : "text-gray-600 group-hover:text-white"
