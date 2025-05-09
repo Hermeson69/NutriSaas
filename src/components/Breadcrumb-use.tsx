@@ -23,7 +23,6 @@ import {
             </BreadcrumbLink>
           </BreadcrumbItem>
   
-          {/* Segmentos do caminho */}
           {pathSegments.map((segment, index) => {
             const href = `/${pathSegments.slice(0, index + 1).join("/")}`;
             return (
