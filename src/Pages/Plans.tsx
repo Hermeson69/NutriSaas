@@ -1,8 +1,12 @@
+import { Pageconfig } from "@/components/Pageconfig";
+
 export const Plans = () => {
   return (
-    <>
-      <h1 className="text-2xl font-bold">Plans</h1>
-      <p className="mt-4 text-gray-600">Welcome to your fitness dashboard!</p>
-    </>
+    <Pageconfig
+      title="Planos"
+      description="Bem-vindo ao seu painel de controle"
+    >
+      <div>{/* Seus componentes e conteúdo aqui */}</div>
+    </Pageconfig>
   );
 };
