@@ -10,12 +10,12 @@ interface MetricsCardProps {
 export function FitnessMetrics({ className }: MetricsCardProps) {
   const caloriesBurned = 1457
   const calorieGoal = 3000
-  const caloriePercentage = Math.round((caloriesBurned / calorieGoal) * 100)
+  // const caloriePercentage = Math.round((caloriesBurned / calorieGoal) * 100)
   const nextWorkout = "Back"
 
-  const days = ["D", "S", "T", "Q", "Q", "S", "S"]
+  // const days = ["D", "S", "T", "Q", "Q", "S", "S"]
 
-  const runData = [10, 30, 45, 40, 20, 35, 15]
+  // const runData = [10, 30, 45, 40, 20, 35, 15]
 
   return (
     <div className={cn("grid grid-cols-1 md:grid-cols-3 gap-4", className)}>

@@ -3,11 +3,13 @@ import { BreadcrumbUse } from "@/components/Breadcrumb-use"
 import { cn } from "@/lib/utils"
 import { BellDot, Settings2 } from "lucide-react"
 
-
+/**
+ * props para a coniguração das paginas passando o titulo descrição (caso a mesma tenha) e children que é o restante da pagina abaixo do BreadcrumbUse.
+ */
 interface Pageconfig {
-  title: string // titulo padrão e obrigatorio
-  description?: string // descrição que né, pode ter ou não
-  children: React.ReactNode // restante da página
+  title: string 
+  description?: string 
+  children: React.ReactNode 
 }
 
 export function Pageconfig({ title, description, children }: Pageconfig) {
