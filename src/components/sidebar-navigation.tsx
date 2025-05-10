@@ -6,6 +6,7 @@ import {
   FileText,
   Megaphone,
   LogOut,
+  UserPen
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
@@ -42,6 +43,11 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
       href: "/Plans",
       icon: FileText,
       bgColor: "bg-transparent",
+    },
+    {
+      name: "Profile",
+      href: "/Profile",
+      icon: UserPen
     },
     {
       name: "Announcements",
