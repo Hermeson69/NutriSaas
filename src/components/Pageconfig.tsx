@@ -1,20 +1,27 @@
 import type React from "react"
 import { BreadcrumbUse } from "@/components/Breadcrumb-use"
-/// Propos da
+import { cn } from "@/lib/utils"
+import { BellDot, Settings2 } from "lucide-react"
+
+
 interface Pageconfig {
   title: string // titulo padrão e obrigatorio
-  description?: string // descrição que né, pode ter oi não
+  description?: string // descrição que né, pode ter ou não
   children: React.ReactNode // restante da página
 }
 
 export function Pageconfig({ title, description, children }: Pageconfig) {
   return (
-    <div className="space-y-6">
-      <div className="space-y-2">
+    <div className="space-y-2">
+      <div className="w-full space-y-1 space-x-2 flex items-center px-1">
         <h1 className="text-2xl font-bold">{title}</h1>
-        {description && <p className="text-gray-600">{description}</p>}
-        <BreadcrumbUse />
+        <div className="flex items-center ml-auto space-x-2">
+          <BellDot size={20} className={cn("hover:cursor-pointer")} />
+          <Settings2 size={20} className={cn("hover:cursor-pointer")} />
+        </div>
       </div>
+      {description && <p className="text-gray-600 dark:text-gray-300">{description}</p>}
+      <BreadcrumbUse />
       <div>{children}</div>
     </div>
   )
