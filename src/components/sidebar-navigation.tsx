@@ -6,10 +6,11 @@ import {
   FileText,
   Megaphone,
   LogOut,
-  UserPen
+  UserPen,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "./ui/button";
+import { useTheme } from "./theme-provider";
 
 interface SidebarNavigationProps {
   className?: string;
@@ -18,7 +19,8 @@ interface SidebarNavigationProps {
 export function SidebarNavigation({ className }: SidebarNavigationProps) {
   const location = useLocation();
   const pathname = location.pathname;
-  
+  const { theme } = useTheme();
+  const isDark = theme === "dark";
 
   const navItems = [
     {
@@ -48,7 +50,7 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
     {
       name: "Profile",
       href: "/Profile",
-      icon: UserPen
+      icon: UserPen,
     },
     {
       name: "Announcements",
@@ -61,7 +63,8 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
   return (
     <div
       className={cn(
-        "flex h-dvh w-16 flex-col ml-4 rounded-[20px] mt-1 justify-between bg-gray-50 py-4",
+        "flex h-screen w-16 flex-col ml-4 rounded-[20px] mt-2 justify-between py-4 transition-colors duration-200 shadow-sm",
+        isDark ? "bg-bark text-gray-100" : "bg-light-50 text-gray-300",
         className
       )}
     >
@@ -78,12 +81,12 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
               item.href === "/"
                 ? pathname === "/"
                 : pathname.startsWith(item.href);
-            const Icon = item.icon; 
+            const Icon = item.icon;
 
             return (
               <Link key={item.name} to={item.href}>
                 <Button
-                variant={"default"}
+                  variant={"default"}
                   className={cn(
                     "relative h-11 w-11 rounded-md flex items-center justify-center hover:bg-green-800 group",
                     isActive ? "bg-green-800" : "bg-transparent"
@@ -108,7 +111,7 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
       {/* Logout button */}
       <div className="flex flex-col items-end pr-3 w-full ml-[-6px]">
         <Button
-          className="h-10 w-10 rounded-md flex items-center justify-center bg-white hover:bg-green-800 group"
+          className="h-10 w-10 rounded-md flex items-center justify-center bg-transparent hover:bg-green-800 group"
           aria-label="Logout"
         >
           <LogOut className="h-8 w-8 text-gray-600 group-hover:text-white" />

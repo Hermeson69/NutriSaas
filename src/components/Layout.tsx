@@ -8,8 +8,8 @@ interface LayoutProps {
 
 export function Layout({ children, className }: LayoutProps) {
   return (
-    <div className="flex min-dvh-screen">
-      <main className={cn("flex-1 p-6", className)}>
+    <div className="flex w-full min-dvh-screen">
+      <main className={cn("flex-1 p-6 ", className)}>
         {/* Conteúdo da página */}
         <div>{children}</div>
       </main>
