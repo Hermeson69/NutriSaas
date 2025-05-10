@@ -13,7 +13,7 @@ export function ThemeToggle({ className, size = "md" }: ThemeToggleProps) {
   const { theme, setTheme } = useTheme()
   const isDark = theme === "dark"
 
-  // Define sizes for the icons
+ 
   const sizeMap = {
     sm: "h-4 w-4",
     md: "h-6 w-6",

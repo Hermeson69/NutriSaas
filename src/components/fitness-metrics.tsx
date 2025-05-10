@@ -34,26 +34,26 @@ export function FitnessMetrics({ className }: MetricsCardProps) {
               <p className="text-2xl font-bold">{caloriesBurned} Kcl</p>
             </div>
 
-            {/* Simple line graph */}
+            
+            
             <div className="h-24 relative">
               <div className="absolute inset-0 flex items-end justify-between">
                 
               </div>
 
-              {/* X-axis */}
-              <div className="absolute bottom-0 left-0 right-0 flex justify-between">
+              
+              {/* <div className="absolute bottom-0 left-1 right-2 flex justify-between">
                 {days.map((day, index) => (
                   <div key={index} className="text-xs">
                     {day}
                   </div>
                 ))}
-              </div>
+              </div> */}
 
-              {/* Y-axis */}
-              <div className="absolute left-0 top-0 bottom-6 w-[2px] bg-white" />
+              
+              {/* <div className="absolute left-0 top-0 bottom-6 w-[2px] bg-white" />
 
-              {/* X-axis line */}
-              <div className="absolute left-0 right-0 bottom-6 h-[2px] bg-white" />
+              <div className="absolute left-0 right-0 bottom-6 h-[2px] bg-white" /> */}
             </div>
           </div>
         </CardContent>
@@ -93,11 +93,11 @@ export function FitnessMetrics({ className }: MetricsCardProps) {
           </div>
 
           <div className="relative h-22 w-22">
-            {/* Background circle */}
-            <div className="absolute inset-0 rounded-full border-4 border-white/20" />
+            
+            {/* <div className="absolute inset-0 rounded-full border-4 border-white/20" /> */}
 
-            {/* Progress circle */}
-            <svg className="absolute inset-0 h-full w-full" viewBox="0 0 100 100">
+           
+            {/* <svg className="absolute inset-0 h-full w-full" viewBox="0 0 100 100">
               <circle
                 cx="50"
                 cy="50"
@@ -113,10 +113,10 @@ export function FitnessMetrics({ className }: MetricsCardProps) {
               />
             </svg>
 
-            {/* Percentage text */}
-            <div className="absolute inset-0 flex items-center justify-center">
+             */}
+            {/* <div className="absolute inset-0 flex items-center justify-center">
               <p className="text-xl font-bold">{caloriePercentage}%</p>
-            </div>
+            </div> */}
           </div>
         </CardContent>
       </Card>
