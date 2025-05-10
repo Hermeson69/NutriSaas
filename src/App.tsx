@@ -6,18 +6,22 @@ import { Gym } from "@/Pages/Gym"
 import { Diet } from "@/Pages/Diet"
 import { Plans } from "@/Pages/Plans"
 import {Profile} from "@/Pages/Profile"
-// import { ThemeProvider } from "@/components/theme-provider"
+import { ThemeProvider } from "@/components/theme-provider"
 import Announcements from "@/Pages/Announcements"
 import {Layout} from "@/components/Layout"
+import { ThemeToggle } from "./components/theme-toggle"
 
 export default function App() {
   return (
-    // <ThemeProvider defaultTheme="system">
+    <ThemeProvider defaultTheme="system">
     <Router>
       <div className="flex min-h-screen">
         <SidebarNavigation />
         <Layout>
-          <main className="flex-1 p-5">
+            <div className="flex justify-end mb-4">
+                <ThemeToggle size="md" />
+              </div>
+          <main className="flex-1 p-5 ">
             <Routes>
               <Route path="/" element={<DashBoard />} />
               <Route path="/Gym" element={<Gym />} />
@@ -31,6 +35,6 @@ export default function App() {
         </Layout>
       </div>
     </Router>
-    // </ThemeProvider>
+    </ThemeProvider>
   )
 }
