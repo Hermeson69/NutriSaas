@@ -18,6 +18,7 @@ interface SidebarNavigationProps {
 export function SidebarNavigation({ className }: SidebarNavigationProps) {
   const location = useLocation();
   const pathname = location.pathname;
+  
 
   const navItems = [
     {
@@ -82,6 +83,7 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
             return (
               <Link key={item.name} to={item.href}>
                 <Button
+                variant={"default"}
                   className={cn(
                     "relative h-11 w-11 rounded-md flex items-center justify-center hover:bg-green-800 group",
                     isActive ? "bg-green-800" : "bg-transparent"
