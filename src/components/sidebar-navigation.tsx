@@ -63,7 +63,7 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
   return (
     <div
       className={cn(
-        "flex h-screen w-16 flex-col ml-4 rounded-[20px] mt-2 justify-between py-4 transition-colors duration-200 shadow-sm",
+        "flex h-dvh w-16 flex-col ml-4 rounded-[20px] mt-0 justify-between py-4 transition-colors duration-200 shadow-sm",
         isDark ? "bg-bark text-gray-100" : "bg-light-50 text-gray-300",
         className
       )}
