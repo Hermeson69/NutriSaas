@@ -7,6 +7,7 @@ import { Diet } from "@/Pages/Diet"
 import { Plans } from "@/Pages/Plans"
 import {Profile} from "@/Pages/Profile"
 import { ThemeProvider } from "@/components/theme-provider"
+// import  LandingPage  from "@/Pages/LandingPage"
 import Announcements from "@/Pages/Announcements"
 import {Layout} from "@/components/Layout"
 import { ThemeToggle } from "./components/theme-toggle"
@@ -14,6 +15,7 @@ import { ThemeToggle } from "./components/theme-toggle"
 export default function App() {
   return (
     <ThemeProvider defaultTheme="system">
+   
     <Router>
       <div className="flex min-h-screen">
         <SidebarNavigation />
@@ -31,7 +33,7 @@ export default function App() {
               <Route path="/Announcements" element={<Announcements />} />
             </Routes>
           </main>
-          {/* Removido o BreadcrumbUse daqui */}
+          
         </Layout>
       </div>
     </Router>
