@@ -2,7 +2,7 @@ import { Button } from "../../ui/button";
 
 const CTASection = () => {
   return (
-    <section className="py-20 bg-[#F5F5F5] text-black">
+    <section className="py-20 bg-[#ffff] text-black">
       <div className="container pl-5 pr-5">
         <div className="max-w-[800px] mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">

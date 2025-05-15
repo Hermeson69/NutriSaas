@@ -4,7 +4,7 @@ import { Badge } from "../../ui/badge";
 
 const AppDownloadSection = () => {
   return (
-    <section id="contact" className="py-20 bg-white">
+    <section id="contact" className="py-20 bg-[#f5f5f5] rounded-2xl">
       <div className="container  pl-5 pr-5">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>

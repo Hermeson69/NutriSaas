@@ -55,7 +55,7 @@ const PricingSection = () => {
   ]
 
   return (
-    <section id="pricing" className="py-20 bg-[#F5F5F5]">
+    <section id="pricing" className="py-20 bg-[#F5F5F5] rounded-2xl">
       <div className="container pl-5 pr-5">
         <div className="text-center max-w-[800px] mx-auto mb-16">
           <Badge className="bg-[#1A4314]/10 text-[#1A4314] hover:bg-[#1A4314]/20 mb-4">Planos</Badge>
