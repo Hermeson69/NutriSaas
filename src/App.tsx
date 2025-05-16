@@ -15,6 +15,7 @@ import { ThemeToggle } from "./components/theme-toggle";
 export default function App() {
   return (
     <ThemeProvider defaultTheme="system">
+      {/* <LandingPage/> */}
       <Router>
         <div className="flex min-h-screen">
           <SidebarNavigation />
