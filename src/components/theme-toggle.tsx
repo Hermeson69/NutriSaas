@@ -44,7 +44,7 @@ export function ThemeToggle({ className, size = "md" }: ThemeToggleProps) {
         />
       ) : (
         <Moon
-          className={cn(iconSize, "text-blue-500 rotate-0 transition-all")}
+          className={cn(iconSize, "text-yellow-300 rotate-0 transition-all")}
         />
       )}
     </div>
