@@ -11,6 +11,7 @@ import { ThemeProvider } from "@/components/Provider/theme-provider";
 import Announcements from "@/Pages/Announcements";
 import { Layout } from "@/components/Layout/Layout";
 import { ThemeToggle } from "./components/theme-toggle";
+// import  {Setting}  from "./Pages/Setting";
 
 export default function App() {
   return (
@@ -31,6 +32,7 @@ export default function App() {
                 <Route path="/Plans" element={<Plans />} />
                 <Route path="/Profile" element={<Profile />} />
                 <Route path="/Announcements" element={<Announcements />} />
+                {/* <Route path="/Setting" element={<Setting />} /> */}
               </Routes>
             </main>
           </Layout>
