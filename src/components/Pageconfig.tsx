@@ -1,18 +1,20 @@
-import type React from "react"
-import { BreadcrumbUse } from "@/components/Breadcrumb-use"
-import { cn } from "@/lib/utils"
-import { BellDot, Settings2 } from "lucide-react"
+import type React from "react";
+import { BreadcrumbUse } from "@/components/Breadcrumb-use";
+import { cn } from "@/lib/utils";
+import { BellDot, Settings2 } from "lucide-react";
+// import { useLocation } from "react-router-dom";
 
 /**
  * props para a coniguração das paginas passando o titulo descrição (caso a mesma tenha) e children que é o restante da pagina abaixo do BreadcrumbUse.
  */
 interface Pageconfig {
-  title: string 
-  description?: string 
-  children: React.ReactNode 
+  title: string;
+  description?: string;
+  children: React.ReactNode;
 }
 
 export function Pageconfig({ title, description, children }: Pageconfig) {
+
   return (
     <div className="space-y-2">
       <div className="w-full space-y-1 space-x-2 flex items-center px-1">
@@ -22,9 +24,11 @@ export function Pageconfig({ title, description, children }: Pageconfig) {
           <Settings2 size={20} className={cn("hover:cursor-pointer")} />
         </div>
       </div>
-      {description && <p className="text-gray-600 dark:text-gray-300">{description}</p>}
+      {description && (
+        <p className="text-gray-600 dark:text-gray-300">{description}</p>
+      )}
       <BreadcrumbUse />
       <div>{children}</div>
     </div>
-  )
+  );
 }
