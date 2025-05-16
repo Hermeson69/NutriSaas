@@ -1,14 +1,14 @@
-import Header from "@/components/LandingPage/Header"
-import Footer from "@/components/LandingPage/Footer"
-import HeroSection from "@/components/LandingPage/Sections/HeroSection"
-import TrustedBySection from "@/components/LandingPage/Sections/TrustedBySection"
-import FeaturesSection from "@/components/LandingPage/Sections/FeaturesSection"
-import HowItWorksSection from "@/components/LandingPage/Sections/HowItWorksSection"
-import TestimonialsSection from "@/components/LandingPage/Sections/TestimonialsSection"
-import PricingSection from "@/components/LandingPage/Sections/PricingSection"
-import CTASection from "@/components/LandingPage/Sections/CTASection"
-import AppDownloadSection from "@/components/LandingPage/Sections/AppDownloadSection"
-import "../index.css"
+import Header from "@/components/Layout/Header";
+import Footer from "@/components/Layout/Footer";
+import HeroSection from "@/components/LandingPage/HeroSection";
+import TrustedBySection from "@/components/LandingPage/TrustedBySection";
+import FeaturesSection from "@/components/LandingPage/FeaturesSection";
+import HowItWorksSection from "@/components/LandingPage/HowItWorksSection";
+import TestimonialsSection from "@/components/LandingPage/TestimonialsSection";
+import PricingSection from "@/components/LandingPage/PricingSection";
+import CTASection from "@/components/LandingPage/CTASection";
+import AppDownloadSection from "@/components/LandingPage/AppDownloadSection";
+import "../index.css";
 
 export default function LandingPage() {
   return (
@@ -26,5 +26,5 @@ export default function LandingPage() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }

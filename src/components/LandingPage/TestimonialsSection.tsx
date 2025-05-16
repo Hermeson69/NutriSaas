@@ -5,8 +5,8 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "../../ui/card";
-import { Badge } from "../../ui/badge";
+} from "../ui/card";
+import { Badge } from "../ui/badge";
 
 type Testimonial = {
   name: string;

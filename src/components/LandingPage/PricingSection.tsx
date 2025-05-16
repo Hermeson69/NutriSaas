@@ -1,16 +1,23 @@
-import { ShieldCheck } from "lucide-react"
-import { Button } from "../../ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../../ui/card"
-import { Badge } from "../../ui/badge"
+import { ShieldCheck } from "lucide-react";
+import { Button } from "../ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "../ui/card";
+import { Badge } from "../ui/badge";
 
 type PricingPlan = {
-  name: string
-  price: string
-  description: string
-  features: string[]
-  cta: string
-  popular: boolean
-}
+  name: string;
+  price: string;
+  description: string;
+  features: string[];
+  cta: string;
+  popular: boolean;
+};
 
 const PricingSection = () => {
   const plans: PricingPlan[] = [
@@ -18,7 +25,12 @@ const PricingSection = () => {
       name: "Básico",
       price: "R$49",
       description: "Ideal para quem está começando",
-      features: ["Plano alimentar básico", "Rotina de exercícios simples", "Acesso ao app", "Suporte por email"],
+      features: [
+        "Plano alimentar básico",
+        "Rotina de exercícios simples",
+        "Acesso ao app",
+        "Suporte por email",
+      ],
       cta: "Começar Agora",
       popular: false,
     },
@@ -52,25 +64,37 @@ const PricingSection = () => {
       cta: "Escolher Família",
       popular: false,
     },
-  ]
+  ];
 
   return (
     <section id="pricing" className="py-20 bg-[#F5F5F5] rounded-2xl">
       <div className="container pl-5 pr-5">
         <div className="text-center max-w-[800px] mx-auto mb-16">
-          <Badge className="bg-[#1A4314]/10 text-[#1A4314] hover:bg-[#1A4314]/20 mb-4">Planos</Badge>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Escolha o plano ideal para você</h2>
+          <Badge className="bg-[#1A4314]/10 text-[#1A4314] hover:bg-[#1A4314]/20 mb-4">
+            Planos
+          </Badge>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            Escolha o plano ideal para você
+          </h2>
           <p className="text-lg text-[#666666]">
-            Oferecemos opções flexíveis para atender às suas necessidades e orçamento.
+            Oferecemos opções flexíveis para atender às suas necessidades e
+            orçamento.
           </p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
           {plans.map((plan, index) => (
-            <Card key={index} className={`border-0 shadow-md relative ${plan.popular ? "ring-2 ring-[#1A4314]" : ""}`}>
+            <Card
+              key={index}
+              className={`border-0 shadow-md relative ${
+                plan.popular ? "ring-2 ring-[#1A4314]" : ""
+              }`}
+            >
               {plan.popular && (
                 <div className="absolute -top-4 left-0 right-0 mx-auto w-fit">
-                  <Badge className="bg-[#1A4314] text-white">Mais Popular</Badge>
+                  <Badge className="bg-[#1A4314] text-white">
+                    Mais Popular
+                  </Badge>
                 </div>
               )}
               <CardHeader>
@@ -93,7 +117,11 @@ const PricingSection = () => {
               </CardContent>
               <CardFooter>
                 <Button
-                  className={`w-full ${plan.popular ? "bg-[#1A4314] hover:bg-[#2C6B22] text-white" : ""}`}
+                  className={`w-full ${
+                    plan.popular
+                      ? "bg-[#1A4314] hover:bg-[#2C6B22] text-white"
+                      : ""
+                  }`}
                   variant={plan.popular ? "default" : "outline"}
                 >
                   {plan.cta}
@@ -104,7 +132,7 @@ const PricingSection = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default PricingSection
+export default PricingSection;

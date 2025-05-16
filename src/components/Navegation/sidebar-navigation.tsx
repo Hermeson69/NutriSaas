@@ -1,4 +1,4 @@
-import { cn } from "../lib/utils";
+import { cn } from "../../lib/utils";
 import {
   Home,
   Dumbbell,
@@ -9,8 +9,8 @@ import {
   UserPen,
 } from "lucide-react";
 import { Link, useLocation } from "react-router-dom";
-import { Button } from "./ui/button";
-import { useTheme } from "./theme-provider";
+import { Button } from "../ui/button";
+import { useTheme } from "../Provider/theme-provider";
 
 interface SidebarNavigationProps {
   className?: string;
