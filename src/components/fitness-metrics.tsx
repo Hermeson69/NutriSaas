@@ -16,7 +16,7 @@ export function FitnessMetrics({ className }: MetricsCardProps) {
   const caloriesBurned = 1457;
   const calorieGoal = 3000;
   const caloriePercentage = Math.round((caloriesBurned / calorieGoal) * 100);
-  const nextWorkout = "Back";
+  const nextWorkout = "Costas";
 
   // const days = ["D", "S", "T", "Q", "Q", "S", "S"]
 
@@ -29,13 +29,13 @@ export function FitnessMetrics({ className }: MetricsCardProps) {
         <CardHeader className="flex flex-row items-center justify-between pb-1">
           <div className="flex items-center space-x-2">
             <Running className="h-6 w-6" />
-            <CardTitle>Run</CardTitle>
+            <CardTitle>Corrida</CardTitle>
           </div>
         </CardHeader>
         <CardContent>
           <div className="space-y-4">
             <div>
-              <p className="text-sm font-medium">This Day:</p>
+              <p className="text-sm font-medium">Hoje:</p>
               <p className="text-2xl font-bold">{caloriesBurned} Kcl</p>
             </div>
 
@@ -63,13 +63,13 @@ export function FitnessMetrics({ className }: MetricsCardProps) {
         <CardHeader className="flex flex-row items-center justify-between pb-1">
           <div className="flex items-center space-x-2">
             <Dumbbell className="h-6 w-6" />
-            <CardTitle>Gym</CardTitle>
+            <CardTitle>Treino</CardTitle>
           </div>
           <BookmarkIcon className="h-5 w-5 text-white" />
         </CardHeader>
         <CardContent className="flex flex-col space-y-17">
           <div>
-            <p className="text-sm font-medium">Next Exercise Day:</p>
+            <p className="text-sm font-medium">Próximo exercicio:</p>
           </div>
 
           <Button className="w-full bg-orange-500 hover:bg-orange-600 text-white">
@@ -83,7 +83,7 @@ export function FitnessMetrics({ className }: MetricsCardProps) {
         <CardHeader className="flex flex-row items-center justify-between pb-1">
           <div className="flex items-center space-x-2">
             <Flame className="h-6 w-6" />
-            <CardTitle>Daily Calorie Goal</CardTitle>
+            <CardTitle>Perca de Calorias Diarias</CardTitle>
           </div>
         </CardHeader>
         <CardContent className="flex flex-col items-center justify-center space-y-3">
