@@ -11,9 +11,10 @@ interface Pageconfig {
   title: string;
   description?: string;
   children: React.ReactNode;
+  classNameProp?: string;
 }
 
-export function Pageconfig({ title, description, children }: Pageconfig) {
+export function Pageconfig({ title, description, children, classNameProp }: Pageconfig) {
 
   return (
     <div className="space-y-2">
@@ -28,7 +29,7 @@ export function Pageconfig({ title, description, children }: Pageconfig) {
         <p className="text-gray-600 dark:text-gray-300">{description}</p>
       )}
       <BreadcrumbUse />
-      <div>{children}</div>
+      <div className={classNameProp}>{children}</div>
     </div>
   );
 }
