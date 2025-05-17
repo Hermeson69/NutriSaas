@@ -2,7 +2,7 @@ import { cn } from "../../lib/utils";
 import {
   Home,
   Dumbbell,
-  Ruler,
+  Apple,
   FileText,
   Megaphone,
   LogOut,
@@ -31,25 +31,25 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
     },
     {
       name: "Workouts",
-      href: "/Gym",
+      href: "/Treino",
       icon: Dumbbell,
       bgColor: "bg-transparent",
     },
     {
       name: "Diet",
-      href: "/Diet",
-      icon: Ruler,
+      href: "/Dieta",
+      icon: Apple,
       bgColor: "bg-transparent",
     },
     {
       name: "Plans",
-      href: "/Plans",
+      href: "/Planos",
       icon: FileText,
       bgColor: "bg-transparent",
     },
     {
       name: "Profile",
-      href: "/Profile",
+      href: "/Perfil",
       icon: UserPen,
     },
     {
