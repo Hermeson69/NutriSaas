@@ -13,12 +13,14 @@ import { Layout } from "@/components/Layout/Layout";
 import { ThemeToggle } from "./components/theme-toggle";
 import { cn } from "./lib/utils";
 // import  {Setting}  from "./Pages/Setting";
+import { LoginForm } from "./components/login-form";
 
 export default function App() {
     const { theme } = useTheme();
     const isDark = theme === "dark";
   return (
     <ThemeProvider defaultTheme="system">
+      {/* <LoginForm/> */}
       {/* <LandingPage/> */}
       <Router>
         <div className={cn("flex min-h-screen",
@@ -37,7 +39,7 @@ export default function App() {
                 <Route path="/Planos" element={<Plans />} />
                 <Route path="/Perfil" element={<Profile />} />
                 <Route path="/Announcements" element={<Announcements />} />
-                {/* <Route path="/Setting" element={<Setting />} /> */}
+              
               </Routes>
             </main>
           </Layout>
