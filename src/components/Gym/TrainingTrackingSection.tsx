@@ -4,6 +4,8 @@ import type React from "react"
 import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { BicepsFlexed } from "lucide-react"
+import { useTheme } from "../Provider/theme-provider"
+import { cn } from "@/lib/utils"
 
 type TrainingItem = {
   type: string
@@ -19,6 +21,8 @@ type Workout = {
  * Card que mostra ao usuário seus treinos do dia
  */
 const TrainingTrackingSection: React.FC = () => {
+      const { theme } = useTheme();
+      const isDark = theme === "dark";
   const [training] = useState<Workout[]>([
     {
       title: "Bíceps",
@@ -47,7 +51,9 @@ const TrainingTrackingSection: React.FC = () => {
   ])
 
   return (
-    <div className="bg-gray-50 rounded-lg p-4 mt-10 w-full">
+    <div className={cn("bg-gray-50 rounded-lg p-4 mt-10 w-full",
+      isDark ? "bg-bark text-gray-100" : "bg-light-50 text-dark",
+    )}>
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <div className="text-dark font-bold text-xl border-b-2 border-dark">Treino</div>

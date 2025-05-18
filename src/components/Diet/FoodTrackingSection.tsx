@@ -4,6 +4,8 @@ import type React from "react"
 import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { CircleCheck, Coffee, Utensils, Apple, UtensilsCrossed, HamburgerIcon} from "lucide-react"
+import { useTheme } from "../Provider/theme-provider"
+import { cn } from "@/lib/utils"
 // import { cn } from "@/lib/utils"
 
 type FoodItem = {
@@ -21,6 +23,8 @@ type Meal = {
  * Card que mostra ao user suas determinadas refeições do dia
  */
 const FoodTrackingSection: React.FC = () => {
+        const { theme } = useTheme();
+        const isDark = theme === "dark";
   const [meals] = useState<Meal[]>([
     {
       title: "Café da Manhã",
@@ -74,7 +78,9 @@ const FoodTrackingSection: React.FC = () => {
   ])
 
   return (
-    <div className="bg-gray-50 rounded-lg p-4 mt-10 w-full">
+    <div className={cn("bg-gray-50 rounded-lg p-4 mt-10 w-full",
+      isDark ? "bg-bark text-gray-100" : "bg-light-50 text-dark",
+    )}>
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <div className="text-dark font-bold text-xl border-b-2 border-dark">Diet</div>
