@@ -4,49 +4,44 @@ import type React from "react"
 import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { BicepsFlexed } from "lucide-react"
-// import { cn } from "@/lib/utils"
 
 type TrainingItem = {
   type: string
   description: string
 }
 
-type Meal = {
+type Workout = {
   title: string
-//   icon: React.ReactNode
   items: TrainingItem[]
 }
 
 /**
- * Card que mostra ao user suas determinadas refeições do dia
+ * Card que mostra ao usuário seus treinos do dia
  */
 const TrainingTrackingSection: React.FC = () => {
-  const [training] = useState<Meal[]>([
+  const [training] = useState<Workout[]>([
     {
-      title: "Biceps",
-    //   icon: <BicepsFlexed className="h-5 w-5" />,
+      title: "Bíceps",
       items: [
-        { type: "1° exercicio: ", description: "Ovos mexidos (2 ovos) com espinafre;" },
-        { type: "2° exercicio: ", description: "Torrada integral (1 fatia);" },
-        { type: "3° exercicio: ", description: "Mix de frutas vermelhas (1/2 xícara);" },
+        { type: "1º Exercício: ", description: "Rosca direta com barra (3 séries de 10-12 repetições)" },
+        { type: "2º Exercício: ", description: "Rosca martelo com halteres (3 séries de 12-15 repetições)" },
+        { type: "3º Exercício: ", description: "Rosca concentrada (3 séries de 10-12 repetições)" },
       ],
     },
     {
-      title: "Triceps",
-    //   icon: <Utensils className="h-5 w-5" />,
+      title: "Tríceps",
       items: [
-        { type: "1° exercicio: ", description: "Peito de frango grelhado (150g);" },
-        { type: "2° exercicio: ", description: "Quinoa (1/2 xícara cozida);" },
-        { type: "3° exercicio: ", description: "Brócolis e cenoura no vapor (1 xícara);" },
+        { type: "1º Exercício: ", description: "Tríceps pulley (3 séries de 12-15 repetições)" },
+        { type: "2º Exercício: ", description: "Mergulho em paralelas (3 séries de 10-12 repetições)" },
+        { type: "3º Exercício: ", description: "Extensão de tríceps com halter (3 séries de 12-15 repetições)" },
       ],
     },
     {
       title: "Antebraço",
-    //   icon: <Apple className="h-5 w-5" />,
       items: [
-        { type: "1° exercicio", description: "Punhado de castanhas mistas (10-12 amêndoas ou nozes);" },
-        { type: "2° exercicio", description: "1 maçã pequena ou pera;" },
-        { type: "3° exercicio: ", description: "Chá de ervas ou água;" },
+        { type: "1º Exercício: ", description: "Rosca de punho com halteres (3 séries de 15-20 repetições)" },
+        { type: "2º Exercício: ", description: "Flexão de punho inversa (3 séries de 15-20 repetições)" },
+        { type: "3º Exercício: ", description: "Prancha com pegada de halter (3 séries de 30 segundos)" },
       ],
     },
   ])
@@ -56,31 +51,27 @@ const TrainingTrackingSection: React.FC = () => {
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <div className="text-dark font-bold text-xl border-b-2 border-dark">Treino</div>
-          <BicepsFlexed
-          size={22}
-          />
+          <BicepsFlexed size={22} />
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {training.map((meal, index) => (
+        {training.map((workout, index) => (
           <Card key={index} className="border-gray-200">
             <CardHeader className="pb-2">
-                <CardTitle className="text-base flex items-center">
-                    {/* <span className="text-gray-700 mr-2">{meal.icon}</span> */}
-                    {meal.title}
-                </CardTitle>
+              <CardTitle className="text-base flex items-center">
+                {workout.title}
+              </CardTitle>
             </CardHeader>
             <CardContent>
-                <ul className="list-disc pl-5 space-y-2 min-h-[200px]">
-                    {meal.items.map((item, itemIndex) =>(
-                        <li key={itemIndex} className="text-gray-700">
-                            {item.type && <span className="font-normal">{item.type}</span>}
-                            {item.description}
-                        </li>
-                    ))}
-
-                </ul>
+              <ul className="list-disc pl-5 space-y-2 min-h-[200px]">
+                {workout.items.map((item, itemIndex) => (
+                  <li key={itemIndex} className="text-gray-700">
+                    {item.type && <span className="font-normal">{item.type}</span>}
+                    {item.description}
+                  </li>
+                ))}
+              </ul>
             </CardContent>
           </Card>
         ))}
