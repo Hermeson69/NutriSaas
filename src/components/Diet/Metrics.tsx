@@ -23,7 +23,7 @@ const chartData = [
   { metrics: "carbo", visitors: 200, fill: "#007AFF" },
   { metrics: "fat", visitors: 187, fill: "#F44E25" },
   { metrics: "sugar", visitors: 173, fill: "#ff758f" },
-  { metrics: "protein", visitors: 220, fill: "#34A853" },
+  { metrics: "protein", visitors: 190, fill: "#34A853" },
   { metrics: "vitamins", visitors: 150, fill: "#FBBC05" },
   { metrics: "minerals", visitors: 130, fill: "#EA4335" },
   { metrics: "other", visitors: 90, fill: "#D9D9D9" },
