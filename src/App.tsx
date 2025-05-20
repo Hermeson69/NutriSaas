@@ -39,7 +39,6 @@ export default function App() {
                 <Route path="/Planos" element={<Plans />} />
                 <Route path="/Perfil" element={<Profile />} />
                 <Route path="/Announcements" element={<Announcements />} />
-              
               </Routes>
             </main>
           </Layout>
