@@ -4,7 +4,7 @@ import type React from "react"
 import { useState } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { CircleCheck, Coffee, Utensils, Apple, UtensilsCrossed, HamburgerIcon} from "lucide-react"
-import { useTheme } from "../Provider/theme-provider"
+// import { useTheme } from "../Provider/theme-provider"
 import { cn } from "@/lib/utils"
 // import { cn } from "@/lib/utils"
 
@@ -23,8 +23,7 @@ type Meal = {
  * Card que mostra ao user suas determinadas refeições do dia
  */
 const FoodTrackingSection: React.FC = () => {
-        const { theme } = useTheme();
-        const isDark = theme === "dark";
+
   const [meals] = useState<Meal[]>([
     {
       title: "Café da Manhã",
@@ -78,10 +77,8 @@ const FoodTrackingSection: React.FC = () => {
   ])
 
   return (
-    <div className={cn("bg-gray-50 rounded-lg p-4 mt-10 w-full",
-      isDark ? "bg-bark text-gray-100" : "bg-light-50 text-dark",
-    )}>
-      <div className="flex items-center justify-between mb-4">
+    <Card className={cn("bg-light rounded-lg p-4 mt-10 w-full")}>
+    <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <div className="text-dark font-bold text-xl border-b-2 border-dark">Diet</div>
           <CircleCheck
@@ -92,7 +89,7 @@ const FoodTrackingSection: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
         {meals.map((meal, index) => (
-          <Card key={index} className="border-gray-200">
+          <Card key={index} className="border-none">
             <CardHeader className="pb-2">
                 <CardTitle className="text-base flex items-center">
                     <span className="text-dark mr-2">{meal.icon}</span>
@@ -102,7 +99,7 @@ const FoodTrackingSection: React.FC = () => {
             <CardContent>
                 <ul className="list-disc pl-5 space-y-2 min-h-[200px]">
                     {meal.items.map((item, itemIndex) =>(
-                        <li key={itemIndex} className="text-gray-700">
+                        <li key={itemIndex} className="text-dark">
                             {item.type && <span className="font-medium">{item.type}</span>}
                             {item.description}
                         </li>
@@ -113,7 +110,8 @@ const FoodTrackingSection: React.FC = () => {
           </Card>
         ))}
       </div>
-    </div>
+    </Card>
+    
   )
 }
 
