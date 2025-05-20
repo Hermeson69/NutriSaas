@@ -13,7 +13,7 @@ import { Layout } from "@/components/Layout/Layout";
 import { ThemeToggle } from "./components/theme-toggle";
 import { cn } from "./lib/utils";
 // import  {Setting}  from "./Pages/Setting";
-import { LoginForm } from "./components/login-form";
+// import { LoginForm } from "./components/login-form";
 
 export default function App() {
     const { theme } = useTheme();
