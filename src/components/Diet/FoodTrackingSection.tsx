@@ -95,7 +95,7 @@ const FoodTrackingSection: React.FC = () => {
           <Card key={index} className="border-gray-200">
             <CardHeader className="pb-2">
                 <CardTitle className="text-base flex items-center">
-                    <span className="text-gray-700 mr-2">{meal.icon}</span>
+                    <span className="text-dark mr-2">{meal.icon}</span>
                     {meal.title}
                 </CardTitle>
             </CardHeader>
