@@ -94,7 +94,7 @@ export function Metrics() {
               dataKey="metrics"
               type="category"
               tickLine={false}
-              tickMargin={10}
+              tickMargin={5}
               axisLine={false}
               tickFormatter={(value) =>
                 chartConfig[value as keyof typeof chartConfig]?.label
