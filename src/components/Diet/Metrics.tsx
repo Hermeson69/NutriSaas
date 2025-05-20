@@ -1,6 +1,6 @@
 "use client";
 
-import { TrendingUp } from "lucide-react";
+import { TrendingDown } from "lucide-react";
 import { Bar, BarChart, XAxis, YAxis } from "recharts";
 
 import {
@@ -19,32 +19,47 @@ import {
 } from "@/components/ui/chart";
 
 const chartData = [
-    { browser: "chrome", visitors: 275, fill: "#1A4314" },
-    { browser: "safari", visitors: 200, fill: "#007AFF" },
-    { browser: "firefox", visitors: 187, fill: "#F44E25" },
-    { browser: "edge", visitors: 173, fill: "#ff758f" },
-    { browser: "other", visitors: 90, fill: "#D9D9D9" },
+    { metrics: "fiber", visitors: 275, fill: "#1A4314" },
+    { metrics: "carbo", visitors: 200, fill: "#007AFF" },
+    { metrics: "fat", visitors: 187, fill: "#F44E25" },
+    { metrics: "sugar", visitors: 173, fill: "#ff758f" },
+    { metrics: "protein", visitors: 220, fill: "#34A853" },
+    { metrics: "vitamins", visitors: 150, fill: "#FBBC05" },
+    { metrics: "minerals", visitors: 130, fill: "#EA4335" },
+    { metrics: "other", visitors: 90, fill: "#D9D9D9" },
 ];
 
 const chartConfig = {
     visitors: {
         label: "Visitors",
     },
-    chrome: {
-        label: "Chrome",
+    fiber: {
+        label: "Fiber",
         color: "#4285F4",
     },
-    safari: {
-        label: "Safari",
+    carbo: {
+        label: "Carbo",
         color: "#007AFF",
     },
-    firefox: {
-        label: "Firefox",
+    fat: {
+        label: "Fat",
         color: "#FF7139",
     },
-    edge: {
-        label: "Edge",
+    sugar: {
+        label: "Sugar",
         color: "#0078D7",
+    },
+    protein: {
+        label: "Protein",
+        color: "#34A853",
+    },
+    vitamins: {
+        label: "Vitamins",
+        color: "#FBBC05",
+    },
+    minerals: {
+        label: "Minerals",
+        color: "#EA4335",
     },
     other: {
         label: "Other",
@@ -54,13 +69,13 @@ const chartConfig = {
 
 export function Metrics() {
     return (
-        <Card className="border-none w-full h-100">
+        <Card className="border-none">
             <CardHeader>
-                <CardTitle>Bar Chart - Mixed</CardTitle>
-                <CardDescription>January - June 2024</CardDescription>
+                <CardTitle>Composição da Dieta - Gráfico</CardTitle>
+                <CardDescription>Janeiro - Junho 2025</CardDescription>
             </CardHeader>
-            <CardContent className="h-50">
-                <ChartContainer className="h-40 w-full" config={chartConfig}>
+            <CardContent className="h-[400px]">
+                <ChartContainer className="h-full w-full" config={chartConfig}>
                     <BarChart
                         accessibilityLayer
                         data={chartData}
@@ -68,9 +83,10 @@ export function Metrics() {
                         margin={{
                             left: 0,
                         }}
+                        height={200} 
                     >
                         <YAxis
-                            dataKey="browser"
+                            dataKey="metrics"
                             type="category"
                             tickLine={false}
                             tickMargin={10}
@@ -90,10 +106,10 @@ export function Metrics() {
             </CardContent>
             <CardFooter className="flex-col items-start gap-2 text-sm">
                 <div className="flex gap-2 font-medium leading-none">
-                    Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
+                    Déficit calórico de 5.2% p/day <TrendingDown className="h-4 w-4" />
                 </div>
                 <div className="leading-none text-muted-foreground">
-                    Showing total visitors for the last 6 months
+                    Mostrar composição total da dieta para os próximos dois meses.
                 </div>
             </CardFooter>
         </Card>
