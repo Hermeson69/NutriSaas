@@ -54,13 +54,13 @@ const chartConfig = {
 
 export function Metrics() {
     return (
-        <Card className="border-none">
+        <Card className="border-none w-full h-100">
             <CardHeader>
                 <CardTitle>Bar Chart - Mixed</CardTitle>
                 <CardDescription>January - June 2024</CardDescription>
             </CardHeader>
-            <CardContent>
-                <ChartContainer config={chartConfig}>
+            <CardContent className="h-50">
+                <ChartContainer className="h-40 w-full" config={chartConfig}>
                     <BarChart
                         accessibilityLayer
                         data={chartData}
