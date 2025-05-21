@@ -78,7 +78,7 @@ export function Metrics() {
           Janeiro - Junho 2025
         </CardDescription>
       </CardHeader>
-      <CardContent className="h-[400px]">
+      <CardContent className="h-[300px] w-full">
         {/*Problema da responsividade ta aqui*/}
         <ChartContainer className="h-full w-full" config={chartConfig}>
           <BarChart
