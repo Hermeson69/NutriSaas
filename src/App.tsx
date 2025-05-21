@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { SidebarNavigation } from "@/components/Navegation/sidebar-navigation";
-import DashBoard from "@/Pages/DashBoard";
-import { Gym } from "@/Pages/Gym";
-import { Diet } from "@/Pages/Diet";
-import { Plans } from "@/Pages/Plans";
-import { Profile } from "@/Pages/Profile";
+import DashBoard from "@/pages/DashBoard";
+import { Gym } from "@/pages/Gym";
+import { Diet } from "@/pages/Diet";
+import { Plans } from "@/pages/Plans";
+import { Profile } from "@/pages/Profile";
 import { ThemeProvider, useTheme } from "@/components/Provider/theme-provider";
-import Announcements from "@/Pages/Announcements";
+import Announcements from "@/pages/Announcements";
 import { Layout } from "@/components/Layout/Layout";
 import { ThemeToggle } from "./components/theme-toggle";
 import { cn } from "./lib/utils";
