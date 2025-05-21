@@ -17,7 +17,7 @@ interface Pageconfig {
 export function Pageconfig({ title, description, children, classNameProp }: Pageconfig) {
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-2 container">
       <div className="w-full space-y-1 space-x-2 flex items-center px-1">
         <h1 className="text-2xl font-bold">{title}</h1>
         <div className="flex items-center ml-auto space-x-2">
