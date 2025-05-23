@@ -49,9 +49,9 @@ const FoodTrackingSection: React.FC = () => {
       title: "Lanche",
       icon: <Apple className="h-5 w-5" />,
       items: [
-        { type: "Proteína", description: "Punhado de castanhas mistas (10-12 amêndoas ou nozes);" },
-        { type: "Fruta", description: "1 maçã pequena ou pera;" },
-        { type: "Bebida", description: "Chá de ervas ou água;" },
+        { type: "Proteína ", description: "Punhado de castanhas mistas (10-12 amêndoas ou nozes);" },
+        { type: "Fruta ", description: "1 maçã pequena ou pera;" },
+        { type: "Bebida ", description: "Chá de ervas ou água;" },
       ],
     },
     {
