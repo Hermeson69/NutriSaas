@@ -10,6 +10,7 @@ import Announcements from "@/pages/Announcements";
 import { Layout } from "@/components/Layout/Layout";
 import { ThemeToggle } from "./components/theme-toggle";
 import { cn } from "./lib/utils";
+// import LoginPage from "./pages/LoginPage";
 
 export default function App() {
   const { theme } = useTheme();
@@ -17,6 +18,7 @@ export default function App() {
 
   return (
     <ThemeProvider defaultTheme="system">
+      {/* <LoginPage/> */}
       <Router>
         <div
           className={cn(
