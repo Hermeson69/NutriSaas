@@ -25,7 +25,7 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
   const navItems = [
     {
       name: "Home",
-      href: "/",
+      href: "/DashBoard",
       icon: Home,
       bgColor: "bg-transparent",
     },
