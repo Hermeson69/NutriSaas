@@ -12,7 +12,6 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
 import { Upload } from "lucide-react"; // Assuming you're using lucide-react for icons
-import { Calendar } from "@/components/ui/calendar";
 import { DatePickerNoCalendar } from "@/components/DatePickerNoCalendar";
 
 export default function OnboardingPage() {
@@ -23,11 +22,7 @@ export default function OnboardingPage() {
   const progress = (currentStep / totalSteps) * 100;
   const navigate = useNavigate();
 
-  const imcCont = () => {
-    // if(peso > 0 && altura > 0){
-    // imc = peso/alt^2
-    //}
-  };
+
 
   const nextStep = () => {
     if (currentStep < totalSteps) {
