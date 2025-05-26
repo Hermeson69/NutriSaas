@@ -21,8 +21,6 @@ type Workout = {
  * Card que mostra ao usuário seus treinos do dia
  */
 const TrainingTrackingSection: React.FC = () => {
-  const { theme } = useTheme();
-  const isDark = theme === "dark";
   const [training] = useState<Workout[]>([
     {
       title: "Bíceps",
@@ -81,7 +79,7 @@ const TrainingTrackingSection: React.FC = () => {
   ]);
 
   return (
-    <Card className={cn("bg-light rounded-lg p-4 mt-10 w-full")}>
+    <Card className={cn("bg-light rounded-lg p-4 mt-10 w-auto")}>
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <div className="text-dark font-bold text-xl border-b-2 border-dark">
