@@ -15,9 +15,16 @@ import { Upload } from "lucide-react"; // Assuming you're using lucide-react for
 
 export default function OnboardingPage() {
   const [currentStep, setCurrentStep] = useState(1);
+  const [goal, setGoal] = useState<string | null>(null);
   const totalSteps = 4;
   const progress = (currentStep / totalSteps) * 100;
   const navigate = useNavigate();
+
+  const imcCont = () => {
+    // if(peso > 0 && altura > 0){
+    // imc = peso/alt^2
+    //}
+  }
 
   const nextStep = () => {
     if (currentStep < totalSteps) {
@@ -40,7 +47,7 @@ export default function OnboardingPage() {
     switch (currentStep) {
       case 1:
         return (
-          <Card>
+          <div>
             <CardHeader>
               <CardTitle>Cadastro De Informações Do Sistema</CardTitle>
               <CardDescription>
@@ -93,9 +100,6 @@ export default function OnboardingPage() {
               <div className="grid grid-cols-3 gap-4">
                 <div className="grid gap-2">
                   <Label htmlFor="cep">CEP:</Label>
-                  <Input id="cep" placeholder="Seu CEP" />
-                </div>
-                <div className="grid gap-2">
                   <Label htmlFor="city">Cidade:</Label>
                   <Input id="city" placeholder="Sua cidade" />
                 </div>
@@ -105,118 +109,12 @@ export default function OnboardingPage() {
                 </div>
               </div>
             </CardContent>
-          </Card>
+          </div>
         );
       case 2:
         return (
-          <Card>
-            <CardHeader>
-              <CardTitle>Cadastro De Informações Do Sistema</CardTitle>
-              <CardDescription>
-                Dados Pessoais - Preencha seus Dados Corporais -
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="grid gap-4 w-full">
-              <div className="grid grid-cols-2 gap-4">
-              <div className="grid gap-2 w-full">
-                <Label htmlFor="peso">Peso:</Label>
-                <Input id="peso" placeholder="Seu peso" />
-              </div>
-                <div className="grid gap-2">
-                  <Label htmlFor="altura">Altura:</Label>
-                  <Input id="altura" placeholder="Sua Altura:" />
-                </div>
-                <div className="grid gap-2">
-                  <Label htmlFor="sex">Sexo:</Label>
-                  <Input id="sex" placeholder="Seu sexo" />
-                </div>
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="grid gap-2">
-                  <Label htmlFor="phone">Telefone (DDD):</Label>
-                  <Input id="phone" placeholder="(11) 99999-9999" />
-                </div>
-                <div className="grid gap-2">
-                  <Label htmlFor="birthDate">Data De Nascimento:</Label>
-                  <Input id="birthDate" type="date" />
-                </div>
-                <div className="grid gap-2">
-                  <Label htmlFor="id">Idade:</Label>
-                  <Input id="id" placeholder="Sua idade" />
-                </div>
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="street">Rua:</Label>
-                <Input id="street" placeholder="Sua rua" />
-              </div>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="grid gap-2">
-                  <Label htmlFor="neighborhood">Bairro:</Label>
-                  <Input id="neighborhood" placeholder="Seu bairro" />
-                </div>
-                <div className="grid gap-2">
-                  <Label htmlFor="number">Nº:</Label>
-                  <Input id="number" placeholder="Número" />
-                </div>
-              </div>
-              <div className="grid grid-cols-3 gap-4">
-                <div className="grid gap-2">
-                  <Label htmlFor="cep">CEP:</Label>
-                  <Input id="cep" placeholder="Seu CEP" />
-                </div>
-                <div className="grid gap-2">
-                  <Label htmlFor="city">Cidade:</Label>
-                  <Input id="city" placeholder="Sua cidade" />
-                </div>
-                <div className="grid gap-2">
-                  <Label htmlFor="state">Estado:</Label>
-                  <Input id="state" placeholder="Seu estado" />
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        );
-      case 3:
-        return (
-          <Card>
-            <CardHeader>
-              <CardTitle>Cadastro De Informações Do Sistema</CardTitle>
-              <CardDescription>
-                Dados Médicos - Informe seu histórico médico
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="grid gap-4">
-              <div className="grid gap-2">
-                <Label htmlFor="medicalRestriction">
-                  Restrição médica (Opcional)
-                </Label>
-                <select
-                  id="medicalRestriction"
-                  className="w-full p-2 border rounded"
-                >
-                  <option value="">Selecione...</option>
-                  <option value="outra">Outra</option>
-                </select>
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="medicalFile">Upload de dados médicos</Label>
-                <div className="flex items-center justify-center w-full">
-                  <label
-                    htmlFor="medicalFile"
-                    className="flex-1 flex items-center justify-center w-full h-10 border-2 border-dashed rounded-lg cursor-pointer bg-muted hover:bg-accent"
-                  >
-                    <Upload className="h-4 w-4 mr-2" />
-                    <span>Escolha um arquivo</span>
-                    <input id="medicalFile" type="file" className="hidden" />
-                  </label>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        );
-      case 4:
-        return (
-          <Card>
+          <div>
+
             <CardHeader>
               <CardTitle>Cadastro De Informações Do Sistema</CardTitle>
               <CardDescription>
@@ -277,11 +175,71 @@ export default function OnboardingPage() {
               <div className="grid gap-2">
                 <Label htmlFor="goal">Qual sua meta?</Label>
                 <div className="flex space-x-2">
-                  <Button variant="outline">Perda de Peso</Button>
-                  <Button variant="outline">Ganhar Massa</Button>
+                  <Button
+                    variant={goal === "perda" ? "default" : "outline"}
+                    className={goal === "perda" ? "bg-green-800 text-white" : ""}
+                    onClick={() => setGoal("perda")}
+                  >
+                    Perda de Peso
+                  </Button>
+                  <Button
+                    variant={goal === "massa" ? "default" : "outline"}
+                    className={goal === "massa" ? "bg-green-800 text-white" : ""}
+                    onClick={() => setGoal("massa")}
+                  >
+                    Ganhar Massa
+                  </Button>
                 </div>
               </div>
             </CardContent>
+          </div>
+        );
+      case 3:
+        return (
+          <Card>
+            <CardHeader>
+              <CardTitle>Cadastro De Informações Do Sistema</CardTitle>
+              <CardDescription>
+                Dados Médicos - Informe seu histórico médico
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="grid gap-4">
+              <div className="grid gap-2">
+                <Label htmlFor="medicalRestriction">
+                  Restrição médica (Opcional)
+                </Label>
+                <select
+                  id="medicalRestriction"
+                  className="w-full p-2 border rounded"
+                >
+                  <option value="">Selecione...</option>
+                  <option value="outra">Outra</option>
+                </select>
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="medicalFile">Upload de dados médicos</Label>
+                <div className="flex items-center justify-center w-full">
+                  <label
+                    htmlFor="medicalFile"
+                    className="flex-1 flex items-center justify-center w-full h-10 border-2 border-dashed rounded-lg cursor-pointer bg-muted hover:bg-accent"
+                  >
+                    <Upload className="h-4 w-4 mr-2" />
+                    <span>Escolha um arquivo</span>
+                    <input id="medicalFile" type="file" className="hidden" />
+                  </label>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
+        );
+      case 4:
+        return (
+          <Card>
+            <CardHeader>
+              <CardTitle>
+                teoricamete o revisar
+              </CardTitle>
+            </CardHeader>
           </Card>
         );
       default:
