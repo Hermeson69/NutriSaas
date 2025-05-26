@@ -84,32 +84,35 @@ export function SignUpForm({
                   <div className="flex items-center">
                     <Label htmlFor="password">Senha</Label>
                   </div>
-                  <Input 
-                    id="password" 
-                    type="password" 
+                  <Input
+                    id="password"
+                    type="password"
                     placeholder="********"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    required 
+                    required
                   />
                 </div>
                 <div className="grid gap-2">
                   <div className="flex items-center">
                     <Label htmlFor="confirmPassword">Confirmar Senha</Label>
                   </div>
-                  <Input 
-                    id="confirmPassword" 
-                    type="password" 
+                  <Input
+                    id="confirmPassword"
+                    type="password"
                     placeholder="********"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    required 
+                    required
                   />
                 </div>
-                <Button type="submit" className="w-full bg-green-800 hover:bg-green-700">
+                <Button
+                  type="submit"
+                  className="w-full bg-green-800 hover:bg-green-700"
+                >
                   Cadastrar-se
                 </Button>
-              </div>  
+              </div>
               <div className="text-center text-sm">
                 Tem uma conta?{" "}
                 <button
@@ -124,7 +127,7 @@ export function SignUpForm({
           </form>
         </CardContent>
       </Card>
-      
+
       <div className="text-balance text-center text-xs text-muted-foreground [&_a]:underline [&_a]:underline-offset-4 [&_a]:hover:text-primary  ">
         By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
         and <a href="#">Privacy Policy</a>.
