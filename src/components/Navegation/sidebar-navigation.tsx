@@ -31,30 +31,30 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
     },
     {
       name: "Workouts",
-      href: "Treino",
+      href: "/DashBoard/Treino", // Updated from /Treino
       icon: Dumbbell,
       bgColor: "bg-transparent",
     },
     {
       name: "Diet",
-      href: "Dieta",
+      href: "/DashBoard/Dieta", // Updated from /Dieta
       icon: Apple,
       bgColor: "bg-transparent",
     },
     {
       name: "Plans",
-      href: "Planos",
+      href: "/DashBoard/Planos", // Updated from /Planos
       icon: FileText,
-      bgColor: "bg-transparent"
+      bgColor: "bg-transparent",
     },
     {
       name: "Profile",
-      href: "Perfil",
+      href: "/DashBoard/Perfil", // Updated from /Perfil
       icon: UserPen,
     },
     {
       name: "Announcements",
-      href: "Announcements",
+      href: "/DashBoard/Announcements", // Updated from /Announcements
       icon: Megaphone,
       bgColor: "bg-transparent",
     },
@@ -78,9 +78,10 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
         <nav className="flex flex-col items-center space-y-6 relative">
           {navItems.map((item) => {
             const isActive =
-              item.href === "/"
-                ? pathname === " "
-                : pathname.startsWith(item.href);
+              item.href === "/DashBoard"
+                ? pathname === "/DashBoard"
+                : pathname === item.href ||
+                  pathname.startsWith(item.href + "/");
             const Icon = item.icon;
 
             return (
