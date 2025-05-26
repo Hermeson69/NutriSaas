@@ -45,7 +45,7 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
       name: "Plans",
       href: "Planos",
       icon: FileText,
-      bgColor: "bg-transparent",
+      bgColor: "bg-transparent"
     },
     {
       name: "Profile",
@@ -79,7 +79,7 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
           {navItems.map((item) => {
             const isActive =
               item.href === "/"
-                ? pathname === "/"
+                ? pathname === " "
                 : pathname.startsWith(item.href);
             const Icon = item.icon;
 
@@ -88,7 +88,7 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
                 <Button
                   variant={"default"}
                   className={cn(
-                    "relative h-11 w-11 rounded-md flex items-center justify-center hover:bg-green-800 group",
+                    "relative h-11 w-11 rounded-md flex items-center justify-center group hover:bg-green-800",
                     isActive ? "bg-green-800" : "bg-transparent"
                   )}
                   aria-label={item.name}
