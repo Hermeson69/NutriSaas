@@ -6,7 +6,7 @@ import Index from "@/pages/index";
 import LoginPage from "@/pages/LoginPage";
 import OnboardingPage from "@/pages/OnboardingPage";
 import DashboardApp from "@/components/DashBoardApp";
-import NotFound from "@/pages/Notfound";
+import NotFound from "@/pages/NotFound";
 
 const App = () => (
   <TooltipProvider>
