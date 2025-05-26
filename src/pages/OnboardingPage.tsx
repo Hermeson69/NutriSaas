@@ -12,10 +12,13 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
 import { Upload } from "lucide-react"; // Assuming you're using lucide-react for icons
+import { Calendar } from "@/components/ui/calendar";
+import { DatePickerNoCalendar } from "@/components/DatePickerNoCalendar";
 
 export default function OnboardingPage() {
   const [currentStep, setCurrentStep] = useState(1);
   const [goal, setGoal] = useState<string | null>(null);
+  const [date, setDate] = useState<Date | undefined>();
   const totalSteps = 4;
   const progress = (currentStep / totalSteps) * 100;
   const navigate = useNavigate();
@@ -24,7 +27,7 @@ export default function OnboardingPage() {
     // if(peso > 0 && altura > 0){
     // imc = peso/alt^2
     //}
-  }
+  };
 
   const nextStep = () => {
     if (currentStep < totalSteps) {
@@ -76,7 +79,8 @@ export default function OnboardingPage() {
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="birthDate">Data De Nascimento:</Label>
-                  <Input id="birthDate" type="date" />
+                  <DatePickerNoCalendar selected={date} onSelect={setDate} />
+                  
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="id">Idade:</Label>
@@ -114,7 +118,6 @@ export default function OnboardingPage() {
       case 2:
         return (
           <div>
-
             <CardHeader>
               <CardTitle>Cadastro De Informações Do Sistema</CardTitle>
               <CardDescription>
@@ -177,14 +180,18 @@ export default function OnboardingPage() {
                 <div className="flex space-x-2">
                   <Button
                     variant={goal === "perda" ? "default" : "outline"}
-                    className={goal === "perda" ? "bg-green-800 text-white" : ""}
+                    className={
+                      goal === "perda" ? "bg-green-800 text-white" : ""
+                    }
                     onClick={() => setGoal("perda")}
                   >
                     Perda de Peso
                   </Button>
                   <Button
                     variant={goal === "massa" ? "default" : "outline"}
-                    className={goal === "massa" ? "bg-green-800 text-white" : ""}
+                    className={
+                      goal === "massa" ? "bg-green-800 text-white" : ""
+                    }
                     onClick={() => setGoal("massa")}
                   >
                     Ganhar Massa
@@ -236,9 +243,7 @@ export default function OnboardingPage() {
         return (
           <Card>
             <CardHeader>
-              <CardTitle>
-                teoricamete o revisar
-              </CardTitle>
+              <CardTitle>teoricamete o revisar</CardTitle>
             </CardHeader>
           </Card>
         );
