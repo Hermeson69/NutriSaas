@@ -1,5 +1,5 @@
 import type React from "react";
-import { BreadcrumbUse } from "@/components/Breadcrumb-use";
+import { BreadcrumbUse } from "@/hooks/Breadcrumb-use";
 import { cn } from "@/lib/utils";
 import { BellDot, Settings2 } from "lucide-react";
 // import { useLocation } from "react-router-dom";
