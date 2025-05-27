@@ -79,7 +79,7 @@ export default function OnboardingPage() {
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="id">Idade:</Label>
-                  <Input id="id" placeholder="Sua idade" />
+                  <Input id="id" placeholder="Sua idade" disabled />
                 </div>
               </div>
               <div className="grid gap-2">
@@ -99,6 +99,9 @@ export default function OnboardingPage() {
               <div className="grid grid-cols-3 gap-4">
                 <div className="grid gap-2">
                   <Label htmlFor="cep">CEP:</Label>
+                  <Input id="city" placeholder="CEP" />
+                </div>
+                <div className="grid gap-2">
                   <Label htmlFor="city">Cidade:</Label>
                   <Input id="city" placeholder="Sua cidade" />
                 </div>
@@ -131,7 +134,7 @@ export default function OnboardingPage() {
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="imc">IMC:</Label>
-                  <Input id="imc" placeholder="Seu IMC" />
+                  <Input id="imc" placeholder="Seu IMC" disabled/>
                 </div>
                 <div className="grid gap-2">
                   <Label htmlFor="activityLevel">
