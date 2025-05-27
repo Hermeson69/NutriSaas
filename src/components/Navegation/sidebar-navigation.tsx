@@ -4,7 +4,7 @@ import {
   Dumbbell,
   Apple,
   FileText,
-  Megaphone,
+  // Megaphone,
   LogOut,
   UserPen,
 } from "lucide-react";
@@ -52,12 +52,12 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
       href: "/DashBoard/Perfil", // Updated from /Perfil
       icon: UserPen,
     },
-    {
-      name: "Announcements",
-      href: "/DashBoard/Announcements", // Updated from /Announcements
-      icon: Megaphone,
-      bgColor: "bg-transparent",
-    },
+    // {
+    //   name: "Announcements",
+    //   href: "/DashBoard/Announcements", // Updated from /Announcements
+    //   icon: Megaphone,
+    //   bgColor: "bg-transparent",
+    // },
   ];
 
   return (
