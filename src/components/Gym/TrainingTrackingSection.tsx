@@ -83,7 +83,7 @@ const TrainingTrackingSection: React.FC = () => {
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <div className="text-dark font-bold text-xl border-b-2 border-dark">
-            Treino
+            Treino - Hoje
           </div>
           <BicepsFlexed size={22} />
         </div>
