@@ -41,12 +41,12 @@ export function SidebarNavigation({ className }: SidebarNavigationProps) {
       icon: Apple,
       bgColor: "bg-transparent",
     },
-    {
-      name: "Plans",
-      href: "/DashBoard/Planos", // Updated from /Planos
-      icon: FileText,
-      bgColor: "bg-transparent",
-    },
+    // {
+    //   name: "Plans",
+    //   href: "/DashBoard/Planos", // Updated from /Planos
+    //   icon: FileText,
+    //   bgColor: "bg-transparent",
+    // },
     {
       name: "Profile",
       href: "/DashBoard/Perfil", // Updated from /Perfil

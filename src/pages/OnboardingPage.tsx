@@ -18,7 +18,7 @@ export default function OnboardingPage() {
   const [currentStep, setCurrentStep] = useState(1);
   const [goal, setGoal] = useState<string | null>(null);
   const [date, setDate] = useState<Date | undefined>();
-  const totalSteps = 4;
+  const totalSteps = 3;
   const progress = (currentStep / totalSteps) * 100;
   const navigate = useNavigate();
 
@@ -237,14 +237,14 @@ export default function OnboardingPage() {
             </CardContent>
           </Card>
         );
-      case 4:
-        return (
-          <Card>
-            <CardHeader>
-              <CardTitle>teoricamete o revisar</CardTitle>
-            </CardHeader>
-          </Card>
-        );
+      // case 4:
+      //   return (
+      //     <Card>
+      //       <CardHeader>
+      //         <CardTitle>teoricamete o revisar</CardTitle>
+      //       </CardHeader>
+      //     </Card>
+      //   );
       default:
         return null;
     }

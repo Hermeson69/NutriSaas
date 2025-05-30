@@ -25,8 +25,8 @@ export const useAuth = () => {
     const mockUser = {
       id: 1,
       email: data.email,
+      password: data.password,
       name: "Usuario Logado",
-      type: "login",
     };
     setuser(mockUser);
 
@@ -44,7 +44,6 @@ export const useAuth = () => {
       id: 2,
       email: data.email,
       name: data.name,
-      type: "signup",
     };
     setuser(mockUser);
     setisLoading(false);
