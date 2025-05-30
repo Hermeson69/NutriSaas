@@ -9,7 +9,7 @@ export const Gym = () => {
       description="Bem-vindo ao seu painel de controle"
     >
       <TrainingTrackingSection/>
-      {/* <Gymfixed/> */}
+      <Gymfixed/>
     </Pageconfig>
   );
 };

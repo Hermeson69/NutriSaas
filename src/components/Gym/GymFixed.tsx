@@ -63,7 +63,7 @@ export const Gymfixed = () => {
   };
 
   return (
-    <Card className="min-h-auto mt-10 flex items-center justify-center md:p-6">
+    <Card className="min-h-auto mt-10 flex bg-light items-center justify-center md:p-6">
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center gap-2">
           <div className="text-dark font-bold text-xl border-b-2 border-dark">
@@ -91,7 +91,7 @@ export const Gymfixed = () => {
             <CardContent>
               <ul className="list-disc pl-5 space-y-1">
                 {warkout.exercises.map((exercise, idx) => (
-                  <li key={idx} className="text-sm text-gray-700">
+                  <li key={idx} className="text-sm text-light">
                     {exercise}
                   </li>
                 ))}
