@@ -3,7 +3,7 @@ import {
   Home,
   Dumbbell,
   Apple,
-  FileText,
+  // FileText,
   // Megaphone,
   LogOut,
   UserPen,
