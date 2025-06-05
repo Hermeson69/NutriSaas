@@ -120,7 +120,7 @@ export function DatePickerNoCalendar({ selected, onSelect }: Props) {
           {/* Select de dia */}
           <Select
             value={date.day}
-            onValueChange={(v) => handleChange("day", v)}
+            onValueChange={(v) => handleChange("day", v)} // 16
           >
             <SelectTrigger className="w-[100px]">
               <SelectValue placeholder="Dia" />
