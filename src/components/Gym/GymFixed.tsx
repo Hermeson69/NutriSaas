@@ -75,7 +75,7 @@ export const Gymfixed = () => {
         {weeklyWorkouts.map((warkout) => (
           <Card
             key={warkout.id}
-            className={`w-70 transition-all w-[100%] duration-300 cursor-pointer ${
+            className={`transition-all w-[100%] duration-300 cursor-pointer ${
               activyCard === warkout.id
                 ? "z-10 scale-105 shadow-2xl"
                 : "z-0 shadow-md"
