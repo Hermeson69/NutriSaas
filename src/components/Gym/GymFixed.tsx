@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
-import { BicepsFlexed, Dumbbell } from "lucide-react";
+import { Dumbbell } from "lucide-react";
 
 export const Gymfixed = () => {
   const [activyCard, setactuvyCard] = useState<number | null>(null);
@@ -71,11 +71,11 @@ export const Gymfixed = () => {
           </div>
         </div>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         {weeklyWorkouts.map((warkout) => (
           <Card
             key={warkout.id}
-            className={`w-70 transition-all duration-300 cursor-pointer ${
+            className={`w-70 transition-all w-[100%] duration-300 cursor-pointer ${
               activyCard === warkout.id
                 ? "z-10 scale-105 shadow-2xl"
                 : "z-0 shadow-md"
