@@ -1,25 +1,34 @@
-export type ExerciseSet = {
-    reps: number
-    weight: number
-    completed: boolean
-    restTime: number // em segundos
+export interface Exercise {
+  id: number
+  name: string
+  description: string
+  sets: number
+  reps: string
+  rest: string
+  tips: string
+  muscleGroup: string
+  completed: boolean
+  weight?: number
+  notes?: string
 }
 
-export type Exercise = {
-    id: string
-    name: string
-    muscle: string
-    sets: ExerciseSet[]
-    instructions: string[]
-    difficulty: "Iniciante"|"Intermediário"|"Avançado"
-    equipament: string
+export interface Workout {
+  id: number
+  name: string
+  description: string
+  day: string
+  exercises: Exercise[]
+  completed: boolean
+  duration?: number
+  date?: string
 }
 
-export type WorkoutSession = {
-    id: string
-    title: string
-    description: string
-    estimatedTime: number
-    exercises: Exercise[]
-    muscleGrupus: string
+export interface WeeklyPlan {
+  id: number
+  name: string
+  week: string
+  workouts: Workout[]
+  userId?: number
 }
+
+export type DayOfWeek = "monday" | "tuesday" | "wednesday" | "thursday" | "friday" | "saturday" | "sunday"
