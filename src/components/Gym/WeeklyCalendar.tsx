@@ -31,7 +31,7 @@ const dayNumbers: Record<DayOfWeek, number> = {
   sunday: 0,
 };
 
-export function WeeklllyCalendar({
+export function WeeklyCalendar({
   weeklyPlan,
   onSelectWorkout,
 }: WeeklyCalendarProps) {
@@ -67,7 +67,7 @@ export function WeeklllyCalendar({
   };
 
   return (
-    <Card>
+    <Card className="min-w-auto">
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
           <Calendar className="h-4 w-4" />
@@ -78,7 +78,7 @@ export function WeeklllyCalendar({
         </p>
       </CardHeader>
       <CardContent>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-7 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
           {weekDays.map((day: DayOfWeek) => {
             const workout = getWorkoutForDay(day);
             const isCurrentDay = isToday(day);
@@ -128,7 +128,7 @@ export function WeeklllyCalendar({
                         <Button
                           size="sm"
                           variant={workout.completed ? "outline" : "default"}
-                          className="w-full text-xs"
+                          className="w-full text-xs bg-green-800 hover:bg-green-700"
                           onClick={() => onSelectWorkout(workout.id)}
                         >
                           {workout.completed ? "Revisar" : "Iniciar"}

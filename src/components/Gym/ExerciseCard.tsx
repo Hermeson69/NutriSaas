@@ -27,10 +27,10 @@ export function ExerciseCard({exercise, isActive, onSelect, onToggleComplete}: E
                     e.stopPropagation()
                     onToggleComplete()
                 }}
-                className="flex-shrink-8"
+                className="flex-shrink-8 bg-green-800 hover:bg-green-700"
                 
                 >
-                    {exercise.completed ? (<CheckCircle2 className="h-4 w-4 text-green-800"/>): <Circle className="h-4 w-4 text-gray-400"/>}
+                    {exercise.completed ? (<CheckCircle2 className="h-4 w-4 text-white"/>): <Circle className="h-4 w-4 text-gray-400"/>}
                 </Button>
 
                 <div className="flex-1 min-w-0">
