@@ -18,7 +18,7 @@ export default function DashboardApp() {
         )}
       >
         <SidebarNavigation className="fixed" />
-        <Layout className="ml-14">
+        <Layout className="ml-14 mr-0">
           <div className="flex justify-end mb-4 mr-5">
             <ThemeToggle size="md" />
           </div>
