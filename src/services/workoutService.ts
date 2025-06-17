@@ -1,50 +1,49 @@
-// Este arquivo será usado para integração com o backend
+// Integração com backend para planos e treinos do usuário
 import type { WeeklyPlan, Workout } from "@/types/workout"
 import { mockWeeklyPlan } from "@/data/workoutsData"
 
-// Simulação de API - substituir por chamadas reais quando o backend estiver pronto
+// Serviço para manipular dados de treino
 export class WorkoutService {
-  // Buscar plano semanal do usuário
+  /**
+   * Busca o plano semanal do usuário
+   * @param userId ID do usuário
+   * @returns Plano semanal
+   */
   static async getWeeklyPlan(userId: number): Promise<WeeklyPlan> {
-    // TODO: Implementar chamada real para API
-    // const response = await fetch(`/api/users/${userId}/weekly-plan`)
-    // return response.json()
-
-    // Por enquanto retorna dados mockados
+    // Simula chamada à API, retorna dados mockados
     return new Promise((resolve) => {
       setTimeout(() => resolve(mockWeeklyPlan), 500)
     })
   }
 
-  // Buscar treino específico
+  /**
+   * Busca um treino específico pelo ID
+   * @param workoutId ID do treino
+   * @returns Treino ou null se não encontrado
+   */
   static async getWorkout(workoutId: number): Promise<Workout | null> {
-    // TODO: Implementar chamada real para API
-    // const response = await fetch(`/api/workouts/${workoutId}`)
-    // return response.json()
-
+    // Busca o plano semanal e retorna o treino correspondente
     const weeklyPlan = await this.getWeeklyPlan(1)
     return weeklyPlan.workouts.find((w) => w.id === workoutId) || null
   }
 
-  // Atualizar progresso do exercício
+  /**
+   * Atualiza o progresso de um exercício
+   * @param exerciseId ID do exercício
+   * @param completed Se foi concluído ou não
+   */
   static async updateExerciseProgress(exerciseId: number, completed: boolean): Promise<void> {
-    // TODO: Implementar chamada real para API
-    // await fetch(`/api/exercises/${exerciseId}/progress`, {
-    //   method: 'PATCH',
-    //   body: JSON.stringify({ completed })
-    // })
-
+    // Simula atualização do progresso do exercício
     console.log(`Exercise ${exerciseId} marked as ${completed ? "completed" : "incomplete"}`)
   }
 
-  // Salvar treino completo
+  /**
+   * Salva o progresso de um treino
+   * @param workoutId ID do treino
+   * @param exercises Lista de exercícios
+   */
   static async saveWorkoutProgress(workoutId: number, exercises: any[]): Promise<void> {
-    // TODO: Implementar chamada real para API
-    // await fetch(`/api/workouts/${workoutId}/progress`, {
-    //   method: 'POST',
-    //   body: JSON.stringify({ exercises })
-    // })
-
+    // Simula salvamento do progresso do treino
     console.log(`Workout ${workoutId} progress saved`, exercises)
   }
 }
