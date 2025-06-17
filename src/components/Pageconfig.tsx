@@ -14,8 +14,23 @@ interface Pageconfig {
   classNameProp?: string;
 }
 
-export function Pageconfig({ title, description, children, classNameProp }: Pageconfig) {
-
+/**
+ * Componente de configuração de página.
+ *
+ * Exibe o título, descrição opcional, breadcrumb, ícones de notificação e configurações,
+ * além de renderizar o conteúdo filho com uma classe customizada.
+ *
+ * @param title Título da página.
+ * @param description Descrição opcional da página.
+ * @param children Conteúdo a ser exibido na página.
+ * @param classNameProp Classe CSS opcional para estilizar o conteúdo.
+ */
+export function Pageconfig({
+  title,
+  description,
+  children,
+  classNameProp,
+}: Pageconfig) {
   return (
     <div className="space-y-2 container">
       <div className="w-full space-y-1 space-x-2 flex items-center px-1">

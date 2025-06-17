@@ -5,6 +5,15 @@ import { Layout } from "@/components/Layout/Layout";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { cn } from "@/lib/utils";
 
+/**
+ * DashboardApp is the main layout component for the dashboard section of the application.
+ * 
+ * - Applies theme (dark or light) based on user/system preference using `ThemeProvider` and `useTheme`.
+ * - Renders a fixed sidebar navigation (`SidebarNavigation`).
+ * - Provides a layout with a top-right theme toggle (`ThemeToggle`).
+ * - Displays routed content via `<Outlet />` inside the main area.
+ * - Uses conditional classes to switch background and text colors according to the current theme.
+ */
 export default function DashboardApp() {
   const { theme } = useTheme();
   const isDark = theme === "dark";

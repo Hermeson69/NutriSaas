@@ -17,6 +17,17 @@ interface LoginFormProps extends React.ComponentPropsWithoutRef<"div"> {
   onToggleForm: () => void;
 }
 
+/**
+ * Componente de formulário de login para autenticação de usuários.
+ *
+ * Exibe campos para email e senha, além de opções de login social (Apple e Google).
+ * Mostra mensagens de carregamento e sucesso conforme o estado da autenticação.
+ * Permite alternar para o formulário de cadastro através da função `onToggleForm`.
+ *
+ * @param className Classe CSS opcional para estilização adicional.
+ * @param onToggleForm Função chamada ao clicar em "Cadastre-se" para alternar o formulário.
+ * @param props Demais propriedades repassadas ao container principal.
+ */
 export function LoginForm({
   className,
   onToggleForm,

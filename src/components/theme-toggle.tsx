@@ -9,6 +9,15 @@ interface ThemeToggleProps {
   size?: "sm" | "md" | "lg";
 }
 
+/**
+ * Componente que alterna entre os temas claro e escuro da aplicação.
+ *
+ * @param className Classe CSS opcional para estilização adicional.
+ * @param size Tamanho do ícone exibido ("sm", "md" ou "lg"). Padrão é "md".
+ *
+ * Ao clicar ou pressionar Enter/Espaço, alterna o tema atual.
+ * Exibe um ícone de Sol para o tema escuro e de Lua para o tema claro.
+ */
 export function ThemeToggle({ className, size = "md" }: ThemeToggleProps) {
   const { theme, setTheme } = useTheme();
   const isDark = theme === "dark";

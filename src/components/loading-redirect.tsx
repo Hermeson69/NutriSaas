@@ -5,6 +5,20 @@ interface LoadingRedirectProps {
     message?: string;
 }
 
+/**
+ * Componente de carregamento e redirecionamento automático.
+ *
+ * Exibe uma animação de carregamento e uma mensagem personalizada enquanto aguarda
+ * um tempo determinado antes de redirecionar o usuário para a rota "/onboarding".
+ *
+ * @param {Object} props - Propriedades do componente.
+ * @param {string} [props.message="Redirecionando...."] - Mensagem exibida durante o carregamento.
+ *
+ * @returns {JSX.Element} Elemento visual de carregamento e redirecionamento.
+ *
+ * @example
+ * <LoadingRedirect message="Aguarde, estamos te redirecionando!" />
+ */
 export function LoadingRedirect({message = "Redirecionando...."}:LoadingRedirectProps ) {
 
     const navigate = useNavigate();

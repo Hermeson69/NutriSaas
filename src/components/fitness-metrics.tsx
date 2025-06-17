@@ -12,6 +12,21 @@ interface MetricsCardProps {
   className?: string;
 }
 
+/**
+ * Componente que exibe métricas de fitness do usuário em três cartões:
+ * - Corrida: mostra as calorias queimadas no dia.
+ * - Treino: exibe o próximo exercício agendado.
+ * - Perca de Calorias Diárias: apresenta o progresso diário de calorias queimadas em relação à meta, com visualização circular.
+ *
+ * @param className Classe CSS opcional para customização do layout do grid.
+ *
+ * @example
+ * <FitnessMetrics className="mt-4" />
+ *
+ * @remarks
+ * Este componente utiliza dados estáticos para demonstração. 
+ * Para uso real, recomenda-se integrar com dados dinâmicos do usuário.
+ */
 export function FitnessMetrics({ className }: MetricsCardProps) {
   const caloriesBurned = 1457;
   const calorieGoal = 3000;

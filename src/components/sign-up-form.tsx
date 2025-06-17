@@ -17,6 +17,16 @@ interface SignUpFormProps extends React.ComponentPropsWithoutRef<"div"> {
   onToggleForm: () => void;
 }
 
+/**
+ * Componente de formulário de cadastro de usuário.
+ *
+ * Exibe campos para nome, email, senha e confirmação de senha.
+ * Valida se as senhas coincidem antes de enviar.
+ * Mostra mensagens de carregamento e sucesso conforme o estado.
+ *
+ * @param className Classe CSS opcional para estilização.
+ * @param onToggleForm Função para alternar para o formulário de login.
+ */
 export function SignUpForm({
   className,
   onToggleForm,

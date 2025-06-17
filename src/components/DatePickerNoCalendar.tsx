@@ -17,10 +17,14 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-// Tipagem das props do componente
+/**
+ * Props para o componente DatePickerNoCalendar
+ * @property {Date} [selected] - Data selecionada (opcional)
+ * @property {(date?: Date) => void} [onSelect] - Callback ao selecionar uma data
+ */
 type Props = {
-  selected?: Date; // Data selecionada (opcional)
-  onSelect?: (date?: Date) => void; // Callback ao selecionar uma data
+  selected?: Date;
+  onSelect?: (date?: Date) => void;
 };
 
 // Array de meses (01 a 12)
@@ -28,7 +32,12 @@ const months = Array.from({ length: 12 }, (_, i) =>
   String(i + 1).padStart(2, "0")
 );
 
-// Função para obter os dias válidos de um mês/ano
+/**
+ * Retorna os dias válidos para um determinado mês e ano
+ * @param {string} month - Mês selecionado
+ * @param {string} year - Ano selecionado
+ * @returns {string[]} - Array de dias válidos
+ */
 function getDaysInMonth(month: string, year: string): string[] {
   const m = parseInt(month, 10);
   const y = parseInt(year, 10) || new Date().getFullYear();
@@ -45,7 +54,10 @@ const years = Array.from({ length: currentYear - 1950 + 1 }, (_, i) =>
   String(1950 + i)
 );
 
-// Componente principal
+/**
+ * Componente de DatePicker sem calendário, apenas selects para dia, mês e ano
+ * @param {Props} props - Propriedades do componente
+ */
 export function DatePickerNoCalendar({ selected, onSelect }: Props) {
   // Estado local para armazenar dia, mês e ano selecionados
   const [date, setDate] = React.useState({
@@ -67,7 +79,11 @@ export function DatePickerNoCalendar({ selected, onSelect }: Props) {
     }
   }, [selected]);
 
-  // Manipula mudanças nos selects de dia, mês e ano
+  /**
+   * Manipula mudanças nos selects de dia, mês e ano
+   * @param {"day" | "month" | "year"} field - Campo alterado
+   * @param {string} value - Novo valor selecionado
+   */
   const handleChange = (field: "day" | "month" | "year", value: string) => {
     if (field === "day" && !date.month) {
       setError("Selecione o mês primeiro");
@@ -120,7 +136,7 @@ export function DatePickerNoCalendar({ selected, onSelect }: Props) {
           {/* Select de dia */}
           <Select
             value={date.day}
-            onValueChange={(v) => handleChange("day", v)} // 16
+            onValueChange={(v) => handleChange("day", v)}
           >
             <SelectTrigger className="w-[100px]">
               <SelectValue placeholder="Dia" />
@@ -166,6 +182,7 @@ export function DatePickerNoCalendar({ selected, onSelect }: Props) {
             </SelectContent>
           </Select>
         </div>
+        {/* Mensagem fixa para instrução */}
         <p className="text-center p-2">Selecionar o mês primeiro</p>
         {/* Exibe mensagem de erro, se houver */}
         {error && <p className="text-red-500 text-sm mt-2">{error}</p>}
