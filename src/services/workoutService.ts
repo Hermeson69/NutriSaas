@@ -1,5 +1,5 @@
 // Este arquivo será usado para integração com o backend
-import type { WeeklyPlan, Workout } from "../types/workout"
+import type { WeeklyPlan, Workout } from "@/types/workout"
 import { mockWeeklyPlan } from "@/data/workoutsData"
 
 // Simulação de API - substituir por chamadas reais quando o backend estiver pronto
