@@ -67,6 +67,14 @@ const chartConfig = {
   },
 } satisfies ChartConfig;
 
+/**
+ * Componente que exibe a composição da dieta em formato de gráfico de barras.
+ *
+ * Mostra um gráfico vertical com dados de métricas alimentares para o período de Janeiro a Junho de 2025,
+ * além de informações adicionais como o déficit calórico diário.
+ *
+ * @returns {JSX.Element} O componente de métricas da dieta com gráfico e informações complementares.
+ */
 export function Metrics() {
   return (
     <Card className="border-none mt-10">

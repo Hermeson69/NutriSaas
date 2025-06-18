@@ -22,6 +22,18 @@ type Meal = {
 /**
  * Card que mostra ao user suas determinadas refeições do dia
  */
+/**
+ * Componente React responsável por exibir a seção de acompanhamento alimentar (FoodTrackingSection).
+ *
+ * Este componente apresenta um card com a lista de refeições do dia, incluindo café da manhã, almoço, lanche, jantar e um dia livre.
+ * Cada refeição é representada por um título, um ícone e uma lista de itens detalhando os alimentos e bebidas sugeridos.
+ *
+ * @component
+ * @example
+ * <FoodTrackingSection />
+ *
+ * @returns {JSX.Element} Um card contendo a grade de refeições e seus respectivos itens.
+ */
 const FoodTrackingSection: React.FC = () => {
 
   const [meals] = useState<Meal[]>([
