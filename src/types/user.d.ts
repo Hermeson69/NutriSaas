@@ -1,4 +1,12 @@
+/**
+ * Nosso "struct global" onde nele se encapsula tudo referente ao user
+ */
+
 declare global {
+
+  /**
+   * Tudo que o user vai mandar para o BD Nome, apelido (caso tenha) sexo e etc...
+   */
   interface TypeUserRequest {
     name: string;
     apelido?: string;
@@ -21,14 +29,23 @@ declare global {
     restricao_alimentar: string;
     meta: boolean;
   }
+  /**
+   * Resposta do BD ao user com suas credenciais
+   */
   interface TypeUserResponse {
     email: string;
     name?: string | null;
   }
+  /**
+   * O que o user vai mandar ao fazer o login
+   */
   interface TypeLoginRequest {
     email: string;
     password: string;
   }
+  /**
+   * Resposta da API ao fazer o login token de acesso único de acesso ao user,
+   */
   interface TypeLoginResponse {
     acess_token: string;
     user: TypeUserResponse;

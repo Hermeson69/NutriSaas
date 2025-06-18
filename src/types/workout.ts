@@ -1,3 +1,6 @@
+/**
+ * "Struct" dos exercisios
+ */
 export interface Exercise {
   id: number
   name: string
@@ -11,7 +14,9 @@ export interface Exercise {
   weight?: number
   notes?: string
 }
-
+/**
+ * Separação dos teinos da semana
+ */
 export interface Workout {
   id: number
   name: string
@@ -22,7 +27,9 @@ export interface Workout {
   duration?: number
   date?: string
 }
-
+/**
+ * Plano de treino
+ */
 export interface WeeklyPlan {
   id: number
   name: string
@@ -30,5 +37,9 @@ export interface WeeklyPlan {
   workouts: Workout[]
   userId?: number
 }
+
+/**
+ * Dias da semana
+ */
 
 export type DayOfWeek = "monday" | "tuesday" | "wednesday" | "thursday" | "friday" | "saturday" | "sunday"
