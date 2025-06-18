@@ -9,6 +9,18 @@ import { Label } from "@/components/ui/label";
 import { DatePickerNoCalendar } from "../DatePickerNoCalendar";
 import { useState } from "react";
 
+/**
+ * Componente de formulário responsável pela primeira etapa do cadastro de informações do sistema.
+ *
+ * Exibe campos para preenchimento de dados pessoais básicos, como nome, apelido, sexo, telefone, data de nascimento,
+ * idade (calculada automaticamente), endereço (rua, bairro, número, CEP, cidade e estado).
+ *
+ * @component
+ * @example
+ * <FormPart1 />
+ *
+ * @returns {JSX.Element} Elemento JSX contendo o formulário de dados pessoais.
+ */
 export const FormPart1 = () => {
   const [date, setDate] = useState<Date | undefined>();
   return (

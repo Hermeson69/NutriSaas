@@ -9,6 +9,15 @@ import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { Button } from "../ui/button";
 
+/**
+ * Componente de formulário responsável pela segunda etapa do cadastro de informações do sistema.
+ * 
+ * Exibe campos para o usuário informar dados corporais, como peso, altura, IMC, índice de atividade física,
+ * índice de gordura corporal, restrições alimentares, nível de experiência com treino e objetivo (meta).
+ * 
+ * @component
+ * @returns {JSX.Element} Elemento JSX contendo os campos do formulário para preenchimento dos dados corporais.
+ */
 export const FormPart2 = () => {
   const [goal, setGoal] = useState<string | null>(null);
   return (

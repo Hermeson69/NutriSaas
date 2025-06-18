@@ -2,6 +2,19 @@ import { Upload } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "../ui/card"
 import { Label } from "../ui/label"
 
+/**
+ * Componente de formulário responsável pela terceira etapa do cadastro,
+ * onde o usuário pode informar dados médicos, como restrições médicas
+ * e realizar o upload de arquivos relacionados à saúde.
+ *
+ * @component
+ *
+ * @returns {JSX.Element} Um card contendo campos para seleção de restrição médica
+ *                       e upload de dados médicos.
+ *
+ * @example
+ * <FormPart3 />
+ */
 export const FormPart3 = () => {
     return (
         <Card>
