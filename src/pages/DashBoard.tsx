@@ -5,6 +5,15 @@ import { Pageconfig } from "@/components/Pageconfig";
 // import { useTheme } from "@/components/Provider/theme-provider";
 // import { cn } from "@/lib/utils";
 
+/**
+ * DashBoard page component.
+ *
+ * Renders the main dashboard view, including fitness metrics, food tracking,
+ * and training tracking sections. Provides a page configuration with a title
+ * and description for the dashboard.
+ *
+ * @returns {JSX.Element} The rendered dashboard page.
+ */
 export default function DashBoard() {
   // const { theme } = useTheme();
   // const isDark = theme === "dark";
