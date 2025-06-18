@@ -1,5 +1,13 @@
 import {Link} from "react-router-dom";
 
+/**
+ * Página inicial do sistema integrado de Gestão de Saúde.
+ *
+ * Exibe uma mensagem de boas-vindas e um botão para redirecionar o usuário à página de login.
+ *
+ * @component
+ * @returns {JSX.Element} O componente da página inicial.
+ */
 const Index = () => {
     return (
         <div className="min-h-screen flex items-center justify-center bg-gray-100">

@@ -1,6 +1,14 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
 
+/**
+ * Componente de página de erro 404.
+ *
+ * Exibe uma mensagem informando que a página não foi encontrada e fornece um link para retornar à página inicial.
+ * Também registra no console um erro sempre que um usuário tenta acessar uma rota inexistente.
+ *
+ * @returns JSX.Element Página de erro 404 estilizada.
+ */
 export default function NotFound(){
   const location = useLocation();
 

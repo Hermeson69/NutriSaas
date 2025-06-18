@@ -17,6 +17,24 @@ import { FormPart1 } from "@/components/Form/form-part1";
 import { FormPart2 } from "@/components/Form/form-part2";
 import { FormPart3 } from "@/components/Form/form-part3";
 
+/**
+ * Página de Onboarding responsável por gerenciar o fluxo de cadastro inicial do usuário.
+ *
+ * Esta página exibe um formulário dividido em etapas (wizard), permitindo ao usuário avançar ou retroceder entre os passos.
+ * O progresso é exibido através de uma barra de progresso e o usuário pode finalizar o cadastro ao completar todas as etapas.
+ *
+ * @component
+ * @returns {JSX.Element} Componente da página de onboarding.
+ *
+ * @example
+ * // Uso típico em rotas protegidas:
+ * <Route path="/onboarding" element={<OnboardingPage />} />
+ *
+ * @remarks
+ * - Utiliza hooks de estado para controlar o passo atual.
+ * - Navega para o dashboard ao finalizar o onboarding.
+ * - Os componentes `FormPart1`, `FormPart2` e `FormPart3` representam os formulários de cada etapa.
+ */
 export default function OnboardingPage() {
   const [currentStep, setCurrentStep] = useState(1);
   const totalSteps = 3;

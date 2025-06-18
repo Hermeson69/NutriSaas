@@ -2,6 +2,12 @@ import { useState } from "react";
 import { LoginForm } from "@/components/login-form";
 import { SignUpForm } from "@/components/sign-up-form";
 
+/**
+ * Renderiza a página de login com a capacidade de alternar entre os formulários de login e cadastro.
+ *
+ * @returns {JSX.Element} O componente da página de login contendo o `LoginForm` ou `SignUpForm`
+ *                        com base no estado atual.
+ */
 export default function LoginPage() {
   const [isLogin, setIsLogin] = useState(true);
 

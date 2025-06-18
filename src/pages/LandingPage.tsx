@@ -12,6 +12,15 @@ import "../index.css";
 import { useTheme } from "@/components/Provider/theme-provider";
 import {cn} from "@/lib/utils"
 
+/**
+ * Renders the main landing page of the application.
+ *
+ * This component sets the background and text color based on the current theme,
+ * and composes the landing page by including various sections such as the header,
+ * hero section, features, testimonials, pricing, call-to-action, app download, and footer.
+ *
+ * @returns The landing page JSX element.
+ */
 export default function LandingPage() {
     const { theme } = useTheme();
     const isDark = theme === "dark";
