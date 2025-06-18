@@ -12,6 +12,18 @@ interface SignUpData {
   confirpassword: string;
 }
 
+/**
+ * Hook personalizado para gerenciar autenticação de usuários.
+ *
+ * Fornece funções para login, cadastro (sign up) e logout, além de expor o usuário autenticado e o estado de carregamento.
+ *
+ * @returns Um objeto contendo:
+ * - `user`: Usuário autenticado ou `null` se não autenticado.
+ * - `isLoading`: Indica se uma operação de autenticação está em andamento.
+ * - `login`: Função assíncrona para realizar login com os dados fornecidos.
+ * - `signUP`: Função assíncrona para cadastrar um novo usuário.
+ * - `logout`: Função para deslogar o usuário atual.
+ */
 export const useAuth = () => {
   const [isLoading, setisLoading] = useState(false);
   const [user, setuser] = useState<any>(null);

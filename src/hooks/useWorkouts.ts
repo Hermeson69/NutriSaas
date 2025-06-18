@@ -1,6 +1,27 @@
 import { useState } from "react";
 import type { Workout } from "@/types/workout";
 
+/**
+ * Hook personalizado para gerenciar o estado e as ações de um treino.
+ *
+ * @param initialWorkout O treino inicial a ser utilizado como estado base.
+ * @returns Um objeto contendo o estado atual do treino, índice do exercício atual, funções para navegação, atualização e controle de descanso, além de informações de progresso.
+ *
+ * @property {Workout} workout O estado atual do treino.
+ * @property {number} currentExercise Índice do exercício atualmente selecionado.
+ * @property {(index: number) => void} setCurrentExercise Função para definir manualmente o exercício atual.
+ * @property {boolean} isResting Indica se o usuário está em período de descanso.
+ * @property {number} restTimer Tempo restante de descanso em segundos.
+ * @property {number} completedExercises Quantidade de exercícios concluídos.
+ * @property {number} progressPercentage Porcentagem de progresso do treino.
+ * @property {(exerciseId: number) => void} toggleExerciseComplete Alterna o status de conclusão de um exercício.
+ * @property {(exerciseId: number, notes: string) => void} updateExerciseNotes Atualiza as anotações de um exercício.
+ * @property {(exerciseId: number, weight: number) => void} updateExerciseWeight Atualiza o peso de um exercício.
+ * @property {() => void} nextExercise Avança para o próximo exercício.
+ * @property {() => void} prevExercise Retorna para o exercício anterior.
+ * @property {() => void} startRest Inicia o período de descanso para o exercício atual.
+ * @property {() => void} resetWorkout Reinicia o treino, marcando todos os exercícios como não concluídos e resetando o estado.
+ */
 export function useWorkout(initialWorkout: Workout) {
     const [workout, setWorkout] = useState<Workout>(initialWorkout);
     const [currentExercise, setCurrentExercise] = useState(0);

@@ -71,6 +71,19 @@ const addToRemoveQueue = (toastId: string) => {
   toastTimeouts.set(toastId, timeout)
 }
 
+/**
+ * Redutor para gerenciar o estado dos toasts.
+ *
+ * Manipula as seguintes ações:
+ * - "ADD_TOAST": Adiciona um novo toast ao início da lista, respeitando o limite máximo.
+ * - "UPDATE_TOAST": Atualiza um toast existente com base no seu ID.
+ * - "DISMISS_TOAST": Marca um ou todos os toasts como fechados (open: false) e adiciona seus IDs à fila de remoção.
+ * - "REMOVE_TOAST": Remove um toast específico pelo ID ou limpa todos os toasts se nenhum ID for fornecido.
+ *
+ * @param state O estado atual dos toasts.
+ * @param action A ação a ser executada sobre o estado.
+ * @returns O novo estado após a ação ser aplicada.
+ */
 export const reducer = (state: State, action: Action): State => {
   switch (action.type) {
     case "ADD_TOAST":
