@@ -3,7 +3,7 @@ import FoodTrackingSection from "@/components/Diet/FoodTrackingSection";
 import { FitnessMetrics } from "@/components/fitness-metrics";
 import DayTraining from "@/components/Gym/TrainingTrackingSection";
 import { Pageconfig } from "@/components/Pageconfig";
-import { WorkoutService } from "@/services/workoutService";
+import { WorkoutService } from "@/hooks/services/workoutService";
 import type { WeeklyPlan, Workout } from "@/types/workout";
 
 type DashBoardProps = {};

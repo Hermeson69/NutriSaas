@@ -8,11 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Progress } from "@/components/ui/progress";
-import { Upload } from "lucide-react"; // Assuming you're using lucide-react for icons
-import { DatePickerNoCalendar } from "@/components/DatePickerNoCalendar";
 import { FormPart1 } from "@/components/Form/form-part1";
 import { FormPart2 } from "@/components/Form/form-part2";
 import { FormPart3 } from "@/components/Form/form-part3";
@@ -85,6 +81,8 @@ export default function OnboardingPage() {
       default:
         return null;
     }
+
+    
   };
 
   return (
