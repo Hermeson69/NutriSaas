@@ -132,14 +132,14 @@ export const FormPart2 = () => {
           <div className="flex space-x-2">
             <Button
               variant={goal === "perda" ? "default" : "outline"}
-              className={goal === "perda" ? "bg-green-800 text-white" : ""}
+              className={`${goal === "perda" ? "bg-green-800 text-white" : ""}`}
               onClick={() => setGoal("perda")}
             >
               Perda de Peso
             </Button>
             <Button
               variant={goal === "massa" ? "default" : "outline"}
-              className={goal === "massa" ? "bg-green-800 text-white" : ""}
+              className={`${goal === "massa" ? "bg-green-800 text-white" : ""}`}
               onClick={() => setGoal("massa")}
             >
               Ganhar Massa
