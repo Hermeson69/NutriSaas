@@ -118,13 +118,13 @@ export function DatePickerNoCalendar({ selected, onSelect }: Props) {
         <Button
           variant="outline"
           className={cn(
-            "w-[280px] justify-start text-left font-normal",
+            "w-[auto] justify-start text-left font-normal",
             !selected && "text-muted-foreground"
           )}
         >
           <CalendarIcon className="mr-2 h-4 w-4" />
           {selected ? (
-            format(selected, "dd/MM/yyyy")
+            format(selected, "yyy/MM/dd")
           ) : (
             <span>Selecionar data</span>
           )}
@@ -133,18 +133,17 @@ export function DatePickerNoCalendar({ selected, onSelect }: Props) {
       {/* Conteúdo do popover: selects para dia, mês e ano */}
       <PopoverContent className="w-auto p-3">
         <div className="flex gap-2">
-          {/* Select de dia */}
           <Select
-            value={date.day}
-            onValueChange={(v) => handleChange("day", v)}
+            value={date.year}
+            onValueChange={(v) => handleChange("year", v)}
           >
-            <SelectTrigger className="w-[100px]">
-              <SelectValue placeholder="Dia" />
+            <SelectTrigger className="w-[120px]">
+              <SelectValue placeholder="Ano" />
             </SelectTrigger>
             <SelectContent>
-              {getDaysInMonth(date.month, date.year).map((d: string) => (
-                <SelectItem key={d} value={d}>
-                  {d}
+              {years.map((y) => (
+                <SelectItem key={y} value={y}>
+                  {y}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -165,18 +164,19 @@ export function DatePickerNoCalendar({ selected, onSelect }: Props) {
               ))}
             </SelectContent>
           </Select>
-          {/* Select de ano */}
+
+          {/* Select de dia */}
           <Select
-            value={date.year}
-            onValueChange={(v) => handleChange("year", v)}
+            value={date.day}
+            onValueChange={(v) => handleChange("day", v)}
           >
-            <SelectTrigger className="w-[120px]">
-              <SelectValue placeholder="Ano" />
+            <SelectTrigger className="w-[100px]">
+              <SelectValue placeholder="Dia" />
             </SelectTrigger>
             <SelectContent>
-              {years.map((y) => (
-                <SelectItem key={y} value={y}>
-                  {y}
+              {getDaysInMonth(date.month, date.year).map((d: string) => (
+                <SelectItem key={d} value={d}>
+                  {d}
                 </SelectItem>
               ))}
             </SelectContent>
