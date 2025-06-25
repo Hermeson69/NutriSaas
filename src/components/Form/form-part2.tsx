@@ -16,8 +16,6 @@ import { Label } from "@/components/ui/label";
 import { useState } from "react";
 import { Button } from "../ui/button";
 import { DatePickerNoCalendar } from "../DatePickerNoCalendar";
-import { DollarSign } from "lucide-react";
-
 /**
  * Componente de formulário responsável pela segunda etapa do cadastro de informações do sistema.
  *
