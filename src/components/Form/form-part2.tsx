@@ -111,16 +111,22 @@ export const FormPart2 = () => {
               </div>
             </div>
             <div className="flex justify-end mt-4">
-              <Button
-                type="button"
-                variant="outline"
-                onClick={() => setMetrics(false)}
-              >
-                Fechar
-              </Button>
             </div>
           </div>
               )}
+            </div>
+          </div>
+
+          <div className="grid gap-2">
+            <Label htmlFor="metrics">Métricas circunferências:</Label>
+            <div className="relative">
+              <Button
+                type="button"
+                variant="outline"
+                className="w-full"
+              >
+                Clique para preencher métricas
+              </Button>
             </div>
           </div>
         </div>
