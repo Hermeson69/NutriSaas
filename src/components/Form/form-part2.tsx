@@ -28,6 +28,11 @@ import { DatePickerNoCalendar } from "../DatePickerNoCalendar";
 export const FormPart2 = () => {
   const [date, setDate] = useState<Date | undefined>();
   const [goal, setGoal] = useState<string | null>(null);
+  const [metrics, setMetrics] = useState(false);
+
+  const handleMwtricChange = () => {
+    setMetrics(false);
+  };
   return (
     <div>
       <CardHeader>
@@ -69,6 +74,54 @@ export const FormPart2 = () => {
                 <SelectItem value="higth">Alta</SelectItem>
               </SelectContent>
             </Select>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-2 gap-4">
+          <div className="grid gap-2">
+            <Label htmlFor="metrics">Métricas circunferências:</Label>
+            <div className="relative">
+              <Button
+          type="button"
+          variant="outline"
+          onClick={() => setMetrics((prev) => !prev)}
+          aria-expanded={metrics}
+          aria-controls="metrics-fields"
+          className="w-full"
+              >
+          {metrics ? "Ocultar métricas" : "Clique para preencher métricas"}
+              </Button>
+              {metrics && (
+          <div
+            id="metrics-fields"
+            className="absolute z-50 mt-2 left-0 w-full bg-white w-full border rounded-md shadow-lg p-4"
+          >
+            <div className="grid grid-cols-3 gap-4">
+              <div className="grid gap-2">
+                <Label htmlFor="waist">Cintura:</Label>
+                <Input id="waist" placeholder="Sua cintura em cm" />
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="hip">Quadril:</Label>
+                <Input id="hip" placeholder="Seu quadril em cm" />
+              </div>
+              <div className="grid gap-2">
+                <Label htmlFor="neck">Pescoço:</Label>
+                <Input id="neck" placeholder="Seu pescoço em cm" />
+              </div>
+            </div>
+            <div className="flex justify-end mt-4">
+              <Button
+                type="button"
+                variant="outline"
+                onClick={() => setMetrics(false)}
+              >
+                Fechar
+              </Button>
+            </div>
+          </div>
+              )}
+            </div>
           </div>
         </div>
 
@@ -124,7 +177,7 @@ export const FormPart2 = () => {
 
           <div className="grid gap-2">
             <Label htmlFor="buget">Orçamento mensal:</Label>
-            <Input id="buget" placeholder="Seu orçamento mensal R$"/>
+            <Input id="buget" placeholder="Seu orçamento mensal R$" />
           </div>
         </div>
         <div className="grid gap-2">
