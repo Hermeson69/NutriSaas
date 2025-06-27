@@ -3,7 +3,7 @@
 import type React from "react"
 import { useState, useEffect } from "react"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { DumbbellIcon as BicepsFlexed, Calendar, CheckCircle2, Clock } from "lucide-react"
+import { DumbbellIcon as BicepsFlexed, Calendar, CheckCircle2, Clock, Circle } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { mockWeeklyPlan } from "@/data/workoutsData"
 import type { Workout, Exercise } from "@/types/workout"
@@ -34,6 +34,18 @@ const TrainingTrackingSection: React.FC = () => {
     const workout = mockWeeklyPlan.workouts.find((w) => w.day === todayKey)
     setTodayWorkout(workout || null)
   }, [])
+
+  const toggleExerciseComplete = (exerciseId: number) => {
+    if (!todayWorkout) return
+
+    setTodayWorkout((prev) => {
+      if (!prev) return prev
+      return {
+        ...prev,
+        exercises: prev.exercises.map((ex) => (ex.id === exerciseId ? { ...ex, completed: !ex.completed } : ex)),
+      }
+    })
+  }
 
   // Se não há treino hoje (sábado/domingo)
   if (!todayWorkout) {
@@ -69,8 +81,8 @@ const TrainingTrackingSection: React.FC = () => {
   )
 
   // Calcular progresso dos exercícios
-  const completedExercises = todayWorkout.exercises.filter((ex) => ex.completed).length
-  const totalExercises = todayWorkout.exercises.length
+  const completedExercises = todayWorkout?.exercises.filter((ex) => ex.completed).length || 0
+  const totalExercises = todayWorkout?.exercises.length || 0
   const progressPercentage = totalExercises > 0 ? (completedExercises / totalExercises) * 100 : 0
 
   return (
@@ -84,8 +96,8 @@ const TrainingTrackingSection: React.FC = () => {
       </div>
 
       <div className="mb-4 space-y-3">
-        <div className="p-3 bg-blue-50 rounded-lg border-l-4 border-blue-500">
-          <p className="text-blue-800 text-sm font-medium">📋 {todayWorkout.description}</p>
+        <div className="p-3 bg-green-50 rounded-lg border-l-4 border-green-500">
+          <p className="text-green-800 text-sm font-medium">📋 {todayWorkout.description}</p>
         </div>
 
         {/* Barra de Progresso */}
@@ -119,22 +131,35 @@ const TrainingTrackingSection: React.FC = () => {
               <ul className="space-y-3 min-h-[200px]">
                 {exercises.map((exercise, exerciseIndex) => (
                   <li key={exercise.id} className="text-dark border-l-2 border-gray-200 pl-3">
-                    <div className="font-medium text-sm mb-1">
-                      {exerciseIndex + 1}º Exercício: {exercise.name}
-                    </div>
-                    <div className="text-xs text-gray-600 mb-2">
-                      {exercise.sets} séries de {exercise.reps} repetições
-                    </div>
-                    <div className="flex items-center gap-2 text-xs text-gray-500">
-                      <Clock className="h-3 w-3" />
-                      Descanso: {exercise.rest}
-                    </div>
-                    {exercise.completed && (
-                      <div className="flex items-center gap-1 mt-1 text-green-600">
-                        <CheckCircle2 className="h-3 w-3" />
-                        <span className="text-xs">Concluído</span>
+                    <div className="flex items-start gap-3">
+                      <button onClick={() => toggleExerciseComplete(exercise.id)} className="flex-shrink-0 mt-1">
+                        {exercise.completed ? (
+                          <CheckCircle2 className="h-5 w-5 text-green-600" />
+                        ) : (
+                          <Circle className="h-5 w-5 text-gray-400" />
+                        )}
+                      </button>
+                      <div className="flex-1">
+                        <div
+                          className={`font-medium text-sm mb-1 ${exercise.completed ? "line-through text-gray-500" : ""}`}
+                        >
+                          {exerciseIndex + 1}º Exercício: {exercise.name}
+                        </div>
+                        <div className="text-xs text-gray-600 mb-2">
+                          {exercise.sets} séries de {exercise.reps} repetições
+                        </div>
+                        <div className="flex items-center gap-2 text-xs text-gray-500">
+                          <Clock className="h-3 w-3" />
+                          Descanso: {exercise.rest}
+                        </div>
+                        {exercise.completed && (
+                          <div className="flex items-center gap-1 mt-1 text-green-600">
+                            <CheckCircle2 className="h-3 w-3" />
+                            <span className="text-xs">Concluído</span>
+                          </div>
+                        )}
                       </div>
-                    )}
+                    </div>
                   </li>
                 ))}
               </ul>
