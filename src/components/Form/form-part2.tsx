@@ -13,7 +13,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Label } from "@/components/ui/label";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "../ui/button";
 import { DatePickerNoCalendar } from "../DatePickerNoCalendar";
 /**
@@ -29,10 +29,28 @@ export const FormPart2 = () => {
   const [date, setDate] = useState<Date | undefined>();
   const [goal, setGoal] = useState<string | null>(null);
   const [metrics, setMetrics] = useState(false);
+  const metricsRef = useRef<HTMLDivElement>(null);
 
-  const handleMwtricChange = () => {
-    setMetrics(false);
-  };
+  const IMCCalcu = () => {};
+
+  useEffect(() => {
+    const handleClose = (e: MouseEvent) => {
+      if (
+        metricsRef.current &&
+        !metricsRef.current.contains(e.target as Node)
+      ) {
+        setMetrics(false);
+      }
+    };
+    if (metrics) {
+      document.addEventListener("mousedown", handleClose);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClose);
+    };
+  }, [metrics]);
+
   return (
     <div>
       <CardHeader>
@@ -44,11 +62,15 @@ export const FormPart2 = () => {
       <CardContent className="grid gap-4">
         <div className="grid grid-cols-3 gap-4">
           <div className="grid gap-2">
-            <Label htmlFor="weight">Peso:</Label>
+            <Label htmlFor="weight">
+              Peso: <span className="text-red-500 font-bold">*</span>
+            </Label>
             <Input id="weight" placeholder="Seu peso" />
           </div>
           <div className="grid gap-2">
-            <Label htmlFor="height">Altura:</Label>
+            <Label htmlFor="height">
+              Altura: <span className="text-red-500 font-bold">*</span>
+            </Label>
             <Input id="height" placeholder="Sua altura" />
           </div>
           <div className="grid gap-2">
@@ -56,16 +78,19 @@ export const FormPart2 = () => {
             <Input id="imc" placeholder="Seu IMC" disabled />
           </div>
         </div>
-        <div className="grid grid-cols-2 gap-2">
+        <div className="grid grid-cols-3 gap-4">
           <div className="grid gap-2">
             <Label htmlFor="bodyFat">Índice de gordura corporal</Label>
             <Input id="bodyFat" placeholder="Clique aqui" />
           </div>
 
           <div className="grid gap-2">
-            <Label htmlFor="activityLevel">Índice de atividade física:</Label>
+            <Label htmlFor="activityLevel">
+              Índice de atividade física:{" "}
+              <span className="text-red-500 font-bold">*</span>
+            </Label>
             <Select required>
-              <SelectTrigger className="w-[auto]">
+              <SelectTrigger className="w-[150px]">
                 <SelectValue placeholder="Índice de atividade física" />
               </SelectTrigger>
               <SelectContent>
@@ -75,65 +100,69 @@ export const FormPart2 = () => {
               </SelectContent>
             </Select>
           </div>
+
+          <div className="grid gap-2">
+            <Label htmlFor="trainingExperience">
+              Nível de experiência com treino:{" "}
+              <span className="text-red-500 font-bold">*</span>
+            </Label>
+            <Select required>
+              <SelectTrigger className="w-[150px]">
+                <SelectValue placeholder="Selecione o nível de experiência" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="iniciante">Iniciante</SelectItem>
+                <SelectItem value="intermediario">Intermediário</SelectItem>
+                <SelectItem value="avancado">Avançado</SelectItem>
+              </SelectContent>
+            </Select>
+          </div>
         </div>
 
         <div className="grid grid-cols-2 gap-4">
           <div className="grid gap-2">
             <Label htmlFor="metrics">Métricas circunferências:</Label>
-            <div className="relative">
+            <div className="relative" ref={metricsRef}>
               <Button
-          type="button"
-          variant="outline"
-          onClick={() => setMetrics((prev) => !prev)}
-          aria-expanded={metrics}
-          aria-controls="metrics-fields"
-          className="w-full"
+                type="button"
+                variant="outline"
+                onClick={() => setMetrics((prev) => !prev)}
+                aria-expanded={metrics}
+                aria-controls="metrics-fields"
+                className="w-full"
               >
-          {metrics ? "Ocultar métricas" : "Clique para preencher métricas"}
+                {metrics
+                  ? "Ocultar métricas"
+                  : "Clique para preencher métricas"}
               </Button>
               {metrics && (
-          <div
-            id="metrics-fields"
-            className="absolute z-50 mt-2 left-0 w-full bg-white w-full border rounded-md shadow-lg p-4"
-          >
-            <div className="grid grid-cols-3 gap-4">
-              <div className="grid gap-2">
-                <Label htmlFor="waist">Cintura:</Label>
-                <Input id="waist" placeholder="Sua cintura em cm" />
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="hip">Quadril:</Label>
-                <Input id="hip" placeholder="Seu quadril em cm" />
-              </div>
-              <div className="grid gap-2">
-                <Label htmlFor="neck">Pescoço:</Label>
-                <Input id="neck" placeholder="Seu pescoço em cm" />
-              </div>
-            </div>
-            <div className="flex justify-end mt-4">
-            </div>
-          </div>
+                <div
+                  id="metrics-fields"
+                  className="absolute left-0 top-full z-50 mt-2 bg-white border rounded-md shadow-lg p-6 w-full max-w-md"
+                  style={{ minWidth: 500 }}
+                >
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="grid gap-2">
+                      <Label htmlFor="waist">Cintura:</Label>
+                      <Input id="waist" placeholder="Sua cintura em cm" />
+                    </div>
+                    <div className="grid gap-2">
+                      <Label htmlFor="hip">Quadril:</Label>
+                      <Input id="hip" placeholder="Seu quadril em cm" />
+                    </div>
+                    <div className="grid gap-2">
+                      <Label htmlFor="neck">Pescoço:</Label>
+                      <Input id="neck" placeholder="Seu pescoço em cm" />
+                    </div>
+                  </div>
+                  <div className="flex justify-end mt-4"></div>
+                </div>
               )}
             </div>
           </div>
 
           <div className="grid gap-2">
-            <Label htmlFor="metrics">Métricas circunferências:</Label>
-            <div className="relative">
-              <Button
-                type="button"
-                variant="outline"
-                className="w-full"
-              >
-                Clique para preencher métricas
-              </Button>
-            </div>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-2 gap-6">
-          <div className="grid gap-2">
-            <Label htmlFor="dietRestriction">Restrição alimentar</Label>
+            <Label htmlFor="dietRestriction">Restrição alimentar: <span className="text-red-500 font-bold">*</span></Label>
             <Select required>
               <SelectTrigger className="w-[auto]">
                 <SelectValue placeholder="Selecione uma restrição alimentar" />
@@ -153,23 +182,19 @@ export const FormPart2 = () => {
                 <SelectItem value="outro">Outro</SelectItem>
               </SelectContent>
             </Select>
-          </div>
-          <div className="grid gap-2">
-            <Label htmlFor="trainingExperience">
-              Nível de experiência com treino:
-            </Label>
-            <Select required>
-              <SelectTrigger className="w-[auto]">
-                <SelectValue placeholder="Selecione o nível de experiência" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="iniciante">Iniciante</SelectItem>
-                <SelectItem value="intermediario">Intermediário</SelectItem>
-                <SelectItem value="avancado">Avançado</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
+          </div>  
+
+          {/* <div className="grid gap-2">
+            <Label htmlFor="metrics">Métricas circunferências:</Label>
+            <div className="relative">
+              <Button type="button" variant="outline" className="w-full">
+                Clique para preencher métricas
+              </Button>
+            </div>
+          </div> */}
         </div>
+
+        {/* <div className="grid grid-cols-2 gap-6"></div> */}
 
         <div className="grid grid-cols-2 gap-4">
           <div className="grid gap-2">
@@ -187,7 +212,7 @@ export const FormPart2 = () => {
           </div>
         </div>
         <div className="grid gap-2">
-          <Label htmlFor="goal">Qual sua meta?</Label>
+          <Label htmlFor="goal">Qual sua meta? <span className="text-red-500 font-bold">*</span></Label>
           <div className="flex space-x-2">
             <Button
               variant={goal === "perda" ? "default" : "outline"}
