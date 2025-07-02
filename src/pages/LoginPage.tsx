@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { LoginForm } from "@/components/login-form";
-import { SignUpForm } from "@/components/sign-up-form";
+import { LoginForm } from "@/components/Form/login-form";
+import { SignUpForm } from "@/components/Form/sign-up-form";
 
 /**
  * Renderiza a página de login com a capacidade de alternar entre os formulários de login e cadastro.
