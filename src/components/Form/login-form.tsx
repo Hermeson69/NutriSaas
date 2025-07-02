@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useAuth } from "@/hooks/useAuth";
 import { LoadingRedirect } from "@/components/loading-redirect";
+import { Link } from "react-router-dom";
 
 interface LoginFormProps extends React.ComponentPropsWithoutRef<"div"> {
   onToggleForm: () => void;
@@ -139,8 +140,13 @@ export function LoginForm({
       </Card>
       
       <div className="text-balance text-center text-xs text-muted-foreground [&_a]:underline [&_a]:underline-offset-4 [&_a]:hover:text-primary  ">
-        Olhe antes de continuar, tenha confirme os <a href="#">Terms of Service</a>{" "}
-        e <a href="#">Privacy Policy</a>.
+        Olhe antes de continuar, tenha confirme os<Link to={"#"}>
+        Terms of Service
+        </Link>{" "}
+        e <Link to={"#"}>
+       Privacy Policy.
+        </Link>{" "}
+  
       </div>
     </div>
   );
