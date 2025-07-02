@@ -1,78 +1,59 @@
 import { useState } from "react";
+import { login, signUp } from "@/hooks/services/userService";
 
-interface Logindata {
-  email: string;
-  password: string;
-}
-
-interface SignUpData {
+interface User {
+  id: string;
   name: string;
   email: string;
-  password: string;
-  confirpassword: string;
+  // Outros campos do usuário
 }
 
-/**
- * Hook personalizado para gerenciar autenticação de usuários.
- *
- * Fornece funções para login, cadastro (sign up) e logout, além de expor o usuário autenticado e o estado de carregamento.
- *
- * @returns Um objeto contendo:
- * - `user`: Usuário autenticado ou `null` se não autenticado.
- * - `isLoading`: Indica se uma operação de autenticação está em andamento.
- * - `login`: Função assíncrona para realizar login com os dados fornecidos.
- * - `signUP`: Função assíncrona para cadastrar um novo usuário.
- * - `logout`: Função para deslogar o usuário atual.
- */
-export const useAuth = () => {
-  const [isLoading, setisLoading] = useState(false);
-  const [user, setuser] = useState<any>(null);
+export function useAuth() {
+  const [user, setUser] = useState<User | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const login = async (data: Logindata) => {
-    setisLoading(true);
-
-    // teoricamente simula uma chamada de API
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    const mockUser = {
-      id: 1,
-      email: data.email,
-      password: data.password,
-      name: "Usuario Logado",
-    };
-    setuser(mockUser);
-
-    console.log("Login realizado: ", mockUser);
-    return mockUser;
+  const loginFn = async (credentials: { email: string; password: string }) => {
+    setIsLoading(true);
+    try {
+      const response = await login({
+        email: credentials.email,
+        passaword: credentials.password,
+      });
+      setUser(response.user);
+      localStorage.setItem("token", response.token);
+    } catch (error) {
+      console.error(error);
+      throw error; 
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const signUP = async (data: SignUpData) => {
-    setisLoading(true);
-
-    // teoricamente simula uma chamada de API
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    const mockUser = {
-      id: 2,
-      email: data.email,
-      name: data.name,
-    };
-    setuser(mockUser);
-    setisLoading(false);
-
-    console.log("Cadastro feito:", mockUser);
-    return mockUser;
+  const signUpFn = async (userData: {
+    name: string;
+    email: string;
+    password: string;
+    confirpassword: string;
+  }) => {
+    setIsLoading(true);
+    try {
+      const response = await signUp(userData);
+      setUser(response.user);
+      if (response.token) {
+        localStorage.setItem("token", response.token);
+      }
+    } catch (error) {
+      console.error(error);
+      throw error; // Propague o erro para o componente
+    } finally {
+      setIsLoading(false);
+    }
   };
-
-  const logout = () =>{
-    setuser(null);
-  }
 
   return {
-    user,
+    login: loginFn,
+    signUP: signUpFn, 
     isLoading,
-    login,
-    signUP,
-    logout
-  }
-};
+    user,
+  };
+}
