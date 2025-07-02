@@ -5,7 +5,6 @@ interface User {
   id: string;
   name: string;
   email: string;
-  // Outros campos do usuário
 }
 
 export function useAuth() {
@@ -44,7 +43,7 @@ export function useAuth() {
       }
     } catch (error) {
       console.error(error);
-      throw error; // Propague o erro para o componente
+      throw error; 
     } finally {
       setIsLoading(false);
     }
