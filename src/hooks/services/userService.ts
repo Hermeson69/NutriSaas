@@ -6,6 +6,12 @@ const API_URL = {
   SIGNUP: "https://api.example.com/auth/signup",
 };
 
+/**
+ * Função async para o usuario poder fazer o login no sistema mandando as credenciais de email(string) senha(string) e retornando a resposta da API para ver se ele esta no sistema
+ * @param credentials 
+ * @returns response
+ */
+
 export async function login(credentials: {email: string; passaword: string}): Promise<any>{
     try{
         const response = await PostRequest(API_URL.LOGIN, credentials);
@@ -18,6 +24,12 @@ export async function login(credentials: {email: string; passaword: string}): Pr
         }
     }
 }
+
+/**
+ * Função async para cadastrar o usuario ao sistema passando os userData (tudo do formulario de cadastro) como: nome, email, password e confirPassword
+ * @param userData 
+ * @returns response
+ */
 
 export async function signUp(userData: {
     name: string;
