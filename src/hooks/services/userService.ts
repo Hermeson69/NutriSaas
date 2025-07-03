@@ -1,9 +1,11 @@
-import { PostRequest } from "@/utils/requests";//da api
+import { PostRequest } from "@/utils/requests";
+import { API_URL } from "@/core/constants";
+import type { UserResponse, TokenResponse, UserCreate } from "@/types/userTypes";
+import StorageHandle from "@/core/storege"
 
-
-const API_URL = {
-  LOGIN: "https://api.example.com/auth/login",
-  SIGNUP: "https://api.example.com/auth/signup",
+const USER_URL = {
+    LOGIN: API_URL + "/user/login",
+    SIGNUP: API_URL + "/user/",
 };
 
 /**
@@ -11,12 +13,12 @@ const API_URL = {
  * @param credentials 
  * @returns response
  */
-
-export async function login(credentials: {email: string; passaword: string}): Promise<any>{
-    try{
-        const response = await PostRequest(API_URL.LOGIN, credentials);
-        return response;
-    }catch (error){
+export async function login(credentials: { email: string; password: string }): Promise<UserResponse> {
+    try {
+        const tokenResponse:TokenResponse = await PostRequest(USER_URL.LOGIN, credentials);
+        StorageHandle.setCookie("token", tokenResponse.access_token);
+        return tokenResponse.user;
+    } catch (error) {
         if (error instanceof Error) {
             throw new Error(`Login error: ${error.message}`);
         } else {
@@ -25,27 +27,15 @@ export async function login(credentials: {email: string; passaword: string}): Pr
     }
 }
 
-/**
- * Função async para cadastrar o usuario ao sistema passando os userData (tudo do formulario de cadastro) como: nome, email, password e confirPassword
- * @param userData 
- * @returns response
- */
-
-export async function signUp(userData: {
-    name: string;
-    email: string; 
-    password: string;
-    confirpassword: string;
-}): Promise<any>{
-     try{
-        const { name, email, password } = userData;
-        const response = await PostRequest(API_URL.SIGNUP, { name, email, password });
-        return response;
-     } catch (error){
-        if(error instanceof Error){
-            throw new Error(`login error: ${error.message}`);
-        }else{
-            throw new Error("Login error: Unknown error");
+export async function singUp(userData: UserCreate): Promise<UserResponse> {
+    try {
+        const userResponse: UserResponse = await PostRequest(USER_URL.SIGNUP, userData);
+        return userResponse;
+    } catch (error) {
+        if (error instanceof Error) {
+            throw new Error(`Signup error: ${error.message}`);
+        } else {
+            throw new Error("Signup error: Unknown error");
         }
-     }
+    }
 }

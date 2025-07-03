@@ -11,22 +11,12 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useAuth } from "@/hooks/useAuth";
-import { LoadingRedirect } from "@/components/loading-redirect";
+import type { UserCreate } from "@/types/userTypes";
 
 interface SignUpFormProps extends React.ComponentPropsWithoutRef<"div"> {
   onToggleForm: () => void;
 }
 
-/**
- * Componente de formulário de cadastro de usuário.
- *
- * Exibe campos para nome, email, senha e confirmação de senha.
- * Valida se as senhas coincidem antes de enviar.
- * Mostra mensagens de carregamento e sucesso conforme o estado.
- *
- * @param className Classe CSS opcional para estilização.
- * @param onToggleForm Função para alternar para o formulário de login.
- */
 export function SignUpForm({
   className,
   onToggleForm,
@@ -36,24 +26,33 @@ export function SignUpForm({
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const { signUP, isLoading, user } = useAuth();
+  const { signUp, loading, error } = useAuth();
+  const [formError, setFormError] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setFormError(null);
+
     if (password !== confirmPassword) {
-      alert("As senhas não coincidem!");
+      setFormError("As senhas não coincidem.");
       return;
     }
-    await signUP({ name, email, password, confirpassword: confirmPassword });
+
+    const userData: UserCreate = {
+      name,
+      email,
+      password,
+    };
+
+    const result = await signUp(userData);
+    if (!result) {
+      setFormError("Erro ao cadastrar. Tente novamente.");
+      return;
+    }
+
+    // Aqui você pode redirecionar ou mostrar mensagem de sucesso
+    // Exemplo: setRedirecting(true);
   };
-
-  if (isLoading) {
-    return <LoadingRedirect message="Criando sua conta..." />;
-  }
-
-  if (user) {
-    return <LoadingRedirect message="Conta criada com sucesso!" />;
-  }
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
@@ -116,11 +115,17 @@ export function SignUpForm({
                     required
                   />
                 </div>
+                {(formError || error) && (
+                  <div className="text-red-600 text-sm text-center">
+                    {formError || error}
+                  </div>
+                )}
                 <Button
                   type="submit"
                   className="w-full bg-green-800 hover:bg-green-700"
+                  disabled={loading}
                 >
-                  Cadastrar-se
+                  {loading ? "Cadastrando..." : "Cadastrar-se"}
                 </Button>
               </div>
               <div className="text-center text-sm">
